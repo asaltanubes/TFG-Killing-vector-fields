@@ -1,4 +1,3 @@
-#import "@preview/physica:0.9.4": *
 #import "utils.typ": show-math, header
 
 /* 
