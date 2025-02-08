@@ -140,3 +140,146 @@ El espacio tangente sería entonces el conjunto de derivaciones en el punto $p$.
 Es facil ver que ambas definiciones son equivalentes puesto que para cualquier curva
 $ D_gamma f = dv(,t)(f compose gamma)(0) $
 es una derivación en el punto $p$.
+
+== Campos vectoriales
+
+Un campo vectorial se puede interpretar como una función que mapea puntos de la variedad 
+a los correspondientes espacios tangentes. Por simplificar la notación se suele usar la 
+noción de paquete tangente
+$ T M = Union_(p in M) T_p M $
+
+cuyos elementos se suelen denotar $(p, v) in T M$ de forma que $v in T_p M$. Así se puede
+definir el llamado mapa proyectivo $pi(p,  v) = p$.
+
+De esta forma un campo vectorial sería un mapa $X: M-->T M$ que cumple que $pi compose X =
+id_M$ donde $id_M$ es la función identidad.
+
+Esencialmente esto quiere decir que $p mapsto X_p in T_p M$. 
+
+Si se tiene un sistema de coordenadas $(U, (x^i))$ entonces se puede escribir el campo 
+mediante la base de derivadas parciales
+
+$ X_p = X^i (p) evalb(pdv(, x^i), p) $
+
+De esta forma se dice que $X_p$ es suave si todas las $X^i$ son suaves.
+
+= Mapeados suaves entre variedades y diffeomorfismos
+
+Un mapeado entre dos variedades diferenciables, $M$ y $N$ es una función $F: M-->N$.
+Dado un sistema de coordenadas $(U, phi)$ para $M$ y $(V, psi)$ para $V$ de forma que
+$p in U$ y $F(p) in V$. Se dice que el mapeado es suave si la función $psi compose F 
+compose phi^(-1)$ es suave. Esencialmente lo que se hace es el siguiente proceso
+
+$ RR^n -->^(phi^(-1)) M -->^F N -->^psi RR^n $
+
+Puesto que $phi$ y $psi$ son homeomorfismos $F$ es suave si también lo es la composición
+con estos.
+
+Un *Diffeomorfismo* es un mapeado continuo con inversa continua.
+
+Los diffeomorfismos dan una noción de equivalencia en el sentido de que si dos variedades
+son diffeomórficas enconces podemos considerarlas 'equivalentes' y se puede escribir
+$M approx N$.
+
+== Pullback y pushforward
+
+Si uno tiene un campo escalar $f$ en una variedad $N$. Y además tiene otra variedad con
+un mapeado suave $F: M --> N$. Entonces puede convertir el campo escalar $f$ en un campo
+escalar en $M$ mediante el 'pullback' 
+
+$ pb(F)f = f compose F $
+Esencialmente se tiene que $M-->^F N -->^f RR$ por lo que $pb(F)f$ es  un campo escalar en 
+$M$. 
+
+Si además $F$ es un diffeomorfismo se puede definir el pushforward $pf(F)$ que mapea campos
+escalares en $M$, $g$, a campos escalares en $N$ de la siguiente manera.
+
+$ pf(F) g = pb((F^(-1))) g = g compose F^(-1) $
+
+Puesto que $(f+g)(p) = f(p) + g(p)$ el pushforward y el pullback son lineales.
+
+De forma similar puesto que $(f g)(p) = f(p) g(p)$ tanto para el pullback como para el 
+pushforward ambos son 'lineales' con respecto al producto de campos escalares.
+
+== Diferencial
+El diferencial de un mapeado suave esencialmente actua como el pushforward para campos 
+vectoriales. El diferencial, $dd(F): T_p M --> T_F(p) N$, se define de la siguiente manera
+
+$ dd(F)(v) = v compose pb(F) $
+
+Esencialmente se usa que $T_F(p) N = {phi: Cinf(N) -->RR}$ y 
+$T_p M =  {phi: Cinf(M) --> RR}$ de forma que 
+$ Cinf(N) -->^pb(F) Cinf(M) -->^v RR $ 
+por lo que 
+$v compose pb(F): Cinf(N) --> RR ==> v compose pb(F) in T_F(p) N$
+
+= Flujos y curvas integrales
+
+A la hora de definir la derivada de lie va a ser de vital importancia la noción de flujos.
+Un flujo, de forma intuitiva, describe el movimiento de una partícula cuya velocidad es 
+un campo vectorial dado. 
+
+La forma de definir esta noción de forma rigurosa es la de las curvas integrales. Si uno
+tiene una curva $gamma: J subset RR --> M$ y un campo vectorial $V in svecfield(M)$
+entonces la 'derivada' de $gamma$ es el correspondiente elemento del espacio tangente
+en $gamma(t)$. 
+
+Se dice que $gamma$ es una curva integral de $V$ si cumple que $gamma(t) = V(gamma(t)) 
+space forall t$. 
+
+Si uno toma un sistema de coordenadas obtendrá un sistema de ecuaciones diferenciales
+de la forma $gamma^i '(t) = V^i (gamma(t))$. La existencia y unicidad de soluciones de 
+este sistema está garantizado puesto que $V$ es suave, por lo tanto, Lipschitz. Un punto
+interesante que surgirá más adelante es que no es dificil ver que si $gamma$ es solución
+entonces $hat(gamma)(t) = gamma(t+t_0)$ también lo será.
+
+== Flujos
+Una manera de pensar en las curvas integrales es como diffeomorfismos $M-->M$. Si uno 
+tiene el siguiente problema de valor inicial
+
+$ cases(dv(phi.alt(t, p), t) = V(phi.alt(t, p)), phi.alt(0, p) = p) $
+
+entonces fijando $t$, $phi.alt^t (p) = phi.alt(t, p)$, se obtiene un diffeomorfismo puesto
+que las soluciones son únicas.
+
+Además puesto que las curvas integrales admiten un cambio de parámetro cambiando $t_0$ se 
+tiene que 
+$ phi.alt(t, phi.alt(s, p)) = phi.alt(t+s, p) $
+
+De esta manera 
+$phi.alt^(-t)(phi.alt^t(p)) = phi.alt^0(p) = p ==> phi.alt^(-t) = (phi.alt^t)^(-1)$
+
+= Derivada de Lie
+
+La derivada de Lie es un operador lineal que actua de forma que dado un campo vectorial
+toma la derivada del objeto que se le paso a lo largo del flujo del campo. En cierto 
+sentido es como una derivada direccional en la que en cada punto el campo dicta en qué
+dirección hay que tomar la derivada.
+
+== Derivada de Lie de un campo escalar
+
+El caso de los campos escalares es el más simple, esto es porque el producto final de un
+campo escalar es un número por lo que se puede dar una definición muy similar al de una
+derivada 'clásica'. 
+
+$ lie(X, f) = lim_(t->0) (f(phi.alt^t (p))-f(p))/t = dv(,t)(f compose phi.alt^t) = X(f) $
+
+== Derivada de Lie de un campo vectorial
+Uno podría intentar hacer lo mismo que en los campos escalares y definir la derivada de 
+Lie mediante la diferencia de los campos en los puntos $p$ y $phi.alt^t (p)$, sin embargo,
+el primero de estos es un elemento de $T_p M$ y el segundo de $T_(phi.alt(t, p)) M$ por lo
+que no se puede calcular la diferencia de ambos. Para poder definir este objeto hay que 
+llevar ambos objetos al mismo espacio. Para ello se puede usar el diferencial del flujo 
+inverso para mapear $T_(phi.alt^t(p)) M$ a $T_p M$. De esta forma se define
+
+$ lie(X, Y) = lim_(t->0) (dd(phi.alt^(-t))_(phi.alt^t (p))(X_(phi.alt^t (p)))- X_p)/t $
+
+Esta expresión resulta ser equivalente a el braket de lie de ambos campos definido como 
+$ [X, Y](f) = X(Y(f)) - Y(X(f)) $
+
+Para demostrarlo se puede hacer dando un sistema de coordenadas, en concreto se puede 
+elegir $X=diff_0$ en los puntos en los que $X!=0$. Con esta elección de coordenadas 
+$phi.alt^t (x^0, x^1, ...) = (x^0+t, x^1, ...)$ y 
+$ dd(phi.alt^(-t))_(phi.alt^t (p))(evalb(pdv(,x^i), phi.alt^(t)(p)))=evalb(pdv(, x^i), p) $. 
+
+Con estas coordenadas el braket es 
