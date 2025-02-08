@@ -42,6 +42,7 @@ TODOS:
   set ref(supplement: it => {
     it.supplement.text.slice(0, 3).replace("u", "") + "."
   })
+  set math.cancel(stroke: 1pt+red)
   
   set heading(numbering: "1.")
   

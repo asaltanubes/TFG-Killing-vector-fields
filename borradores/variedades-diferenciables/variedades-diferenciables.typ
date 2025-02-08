@@ -249,6 +249,10 @@ $ phi.alt(t, phi.alt(s, p)) = phi.alt(t+s, p) $
 De esta manera 
 $phi.alt^(-t)(phi.alt^t(p)) = phi.alt^0(p) = p ==> phi.alt^(-t) = (phi.alt^t)^(-1)$
 
+= Tensores y espacio dual
+
+
+
 = Derivada de Lie
 
 La derivada de Lie es un operador lineal que actua de forma que dado un campo vectorial
@@ -272,7 +276,7 @@ que no se puede calcular la diferencia de ambos. Para poder definir este objeto 
 llevar ambos objetos al mismo espacio. Para ello se puede usar el diferencial del flujo 
 inverso para mapear $T_(phi.alt^t(p)) M$ a $T_p M$. De esta forma se define
 
-$ lie(X, Y) = lim_(t->0) (dd(phi.alt^(-t))_(phi.alt^t (p))(X_(phi.alt^t (p)))- X_p)/t $
+$ lie(X, Y) = lim_(t->0) (dd(phi.alt^(-t))_(phi.alt^t (p))(Y_(phi.alt^t (p)))- Y_p)/t $
 
 Esta expresión resulta ser equivalente a el braket de lie de ambos campos definido como 
 $ [X, Y](f) = X(Y(f)) - Y(X(f)) $
@@ -280,6 +284,30 @@ $ [X, Y](f) = X(Y(f)) - Y(X(f)) $
 Para demostrarlo se puede hacer dando un sistema de coordenadas, en concreto se puede 
 elegir $X=diff_0$ en los puntos en los que $X!=0$. Con esta elección de coordenadas 
 $phi.alt^t (x^0, x^1, ...) = (x^0+t, x^1, ...)$ y 
-$ dd(phi.alt^(-t))_(phi.alt^t (p))(evalb(pdv(,x^i), phi.alt^(t)(p)))=evalb(pdv(, x^i), p) $. 
+$ dd(phi.alt^(-t))_(phi.alt^t (p))(evalb(pdv(,x^i), phi.alt^(t)(p)))=evalb(pdv(, x^i), p) $<ec:diff-flux-lie-proof-vector-field>. 
 
 Con estas coordenadas el braket es 
+#[
+#let ppdv(ind) = $pdv(, x^ind)$ 
+$ [X, Y] = [ppdv(0), Y^j ppdv(j)]= ppdv(0)(Y^j ppdv(j)) - Y^j ppdv(j)(ppdv(0)) = \
+\= ppdv(0)(Y^j) ppdv(j) + cancel(Y^j ppdv(0)(ppdv(j))) - cancel(Y^j ppdv(0)(ppdv(j))) =
+pdv(Y^j, x^0) ppdv(j)  $
+
+
+
+Por otro lado la derivada de lie se convierte en
+
+$ lie(X, Y) = lim_(t->0) (dd(phi.alt^(-t))_(phi.alt^t (p))(Y_(phi.alt^t (p)))- Y_p)/t = 
+lim_(t->0) (Y^j_(phi.alt^t (p)) dd(phi.alt^(-t))_(phi.alt^t (p)) (evalb(ppdv(j), 
+phi.alt^t(p))) - Y^i_p evalb(ppdv(i), p))/t =^(#ref(<ec:diff-flux-lie-proof-vector-field>))\
+= lim_(t->0) (Y^j_(phi.alt^t (p)) evalb(ppdv(j), p) - Y^i_p evalb(ppdv(i), p))/t = 
+lim_(t->0) (Y^i_(phi.alt^t(p)) - Y^i_p)/t evalb(ppdv(i), p) = (lie(X, Y^i))_p evalb(ppdv(i), p)
+= ppdv(0)(Y^i) ppdv(i) #h(5pt) $
+]
+
+En los puntos en los cuales $X=0$ y por lo tanto no se puede tomar este sistema de
+coordenadas la derivada de Lie es nula puesto que $phi^t(p) = p$. Además el braket
+también se anula puesto que $Y(0) = X(dot) = 0$. Por lo tanto ambas expresiones son nulas
+en ambos casos.
+
+$ lie(X, Y) = [X, Y] $
