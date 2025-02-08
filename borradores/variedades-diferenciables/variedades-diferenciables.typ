@@ -306,7 +306,7 @@ lim_(t->0) (Y^i_(phi.alt^t(p)) - Y^i_p)/t evalb(ppdv(i), p) = (lie(X, Y^i))_p ev
 ]
 
 En los puntos en los cuales $X=0$ y por lo tanto no se puede tomar este sistema de
-coordenadas la derivada de Lie es nula puesto que $phi^t(p) = p$. Además el braket
+coordenadas la derivada de Lie es nula puesto que $phi.alt^t (p) = p$. Además el braket
 también se anula puesto que $Y(0) = X(dot) = 0$. Por lo tanto ambas expresiones son nulas
 en ambos casos.
 
