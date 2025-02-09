@@ -20,3 +20,4 @@
 )
 
 #let svecfield(manifold) = $frak(X)(manifold)$ 
+#let dualspace(space) = $space^*$

@@ -251,6 +251,89 @@ $phi.alt^(-t)(phi.alt^t(p)) = phi.alt^0(p) = p ==> phi.alt^(-t) = (phi.alt^t)^(-
 
 = Tensores y espacio dual
 
+== Espacio dual
+Si uno tiene un espacio vectorial $V$ uno puede definir un tipo de funciones entre dos
+espacios vectoriales llamadas lineales las cuales cumplen que para cualquier conjunto de 
+escalares ($a, b$) y vectores ($u, v$)
+
+$ f(a dot v + b dot u) = a f(a) + b f(b) $
+
+En concreto, se pueden definir funciones de $V-->RR$ con la estructura habitual de espacio
+vectorial de los números reales. Uno puede definir la suma y multiplicación por un escalar
+de estas funciones de forma simple como
+$ (f+g)(v) = f(v) + g(v) \ (a f)(v) = a f(v) $
+
+Usando esta definición es claro que esto forma un segundo espacio vectorial al cual vamos
+a denotar $dualspace(V)$ o espacio dual de $V$. Es facil ver que $dualspace(V)$ tiene que
+tener la misma dimensión que $V$. Esto es porque si $V$ tiene $n$ dimensiones entonces 
+tiene una base ${v_1, ..., v_n}$. Si uno evalua un vector arbitrario $u$ con una función
+lineal obtiene
+
+$ f(u) = f(alpha^i v_i) = alpha^i f(v_i) $
+
+De esta forma uno puede ver que determinando los $n$ números correspondiendo a las $f(v_i)$
+la función $f$ queda perfectamente determinada por lo que el espacio $dualspace(V)$ tiene
+$n$ dimensiones.
+
+== Tensores
+Ahora uno podría querer extender este razonamiento a funciones con más de un 'input' y que
+devuelvan vectores en vez de solo escalares. Esto da la noción de funciones multilineales.
+
+Comenzando por el caso más simple función multilineal es aquella la cual toma elementos de
+$V times V times V ...$ y devuelve números reales y además cumple la siguiente relación
+
+$ T(v_1, v_2, ..., alpha v_i + beta u_i, ...) = alpha T(v_1, v_2, ..., v_i, ...) + beta T(v_1, v_2, ..., u_i, ...) $
+
+para cualquier $i$.
+
+Es interesante notar que si uno tiene una pareja de vectores arbitrarios escritos en unas 
+bases ${arrow(e)_i}$ y ${arrow(e)'_i}$, $v = v^i arrow(e)_i$ y $u = u^i arrow(e)'_i$, 
+y una aplicación multilineal con dos inputs, $T(v, u)$, entonces se puede definir
+$tensor(T, - alpha beta) := T(arrow(e)_alpha, arrow(e)'_beta)$ y usando linealidad se 
+obtiene que $T(v, u) = v^alpha u^beta tensor(T, -alpha beta)$. Por lo que de nuevo la 
+función está determinada por los números $tensor(T, -alpha beta)$
+
+Ahora uno podría querer intentar generalizar esto y obtener aplicaciones mulilineales que
+devuelvan vectores, múltiples vectores o incluso otras funciones multilineales. Esto, 
+que en principio parece dificil de conseguir, solo requiere de añadir el espacio dual al
+input de nuestra aplicación.
+
+=== Ejemplo con vectores
+Imaginemos que queremos una aplicación multilineal $G$ que coja dos vectores y devuelva
+otro. Si por ejemplo se tiene que $w = G(u, v)$, entonces se puede definir una aplicación
+multilineal de $dualspace(V) times V times V --> RR$ usando elementos del espacio dual.
+Si $omega in dualspace(V)$
+
+$ T(omega, u, v) = omega(G(u, v)) $
+
+Además $T$ tiene la misma información que $G$ puesto que si uno tiene una base ${arrow(e)_i}$
+de $V$ y una base de $dualspace(V)$ ${omega^i}$ tal que $omega_i (arrow(e)_j) = delta_(i j)$
+y definiendo $tensor(T, +i, - j k) = T(omega^i, arrow(e)_j, arrow(e)_k)$ entonces
+
+$ w^i = tensor(T, +i, - j k) u^j v^k $
+
+Por lo tanto uno obtiene de forma automática lo que quería si permite copias de el espacio
+dual en el 'input' de la función. De esta manera se define un tensor de tipo $(p, q)$ o
+$p$ veces covariante y $q$ veces contravariante como una aplicación multilineal
+
+$ T: underbrace(dualspace(V) times ... times dualspace(V), p "copias") times underbrace(V times ... times V, q "copias") --> RR $
+
+== Campos tensoriales en variedades diferenciables
+
+En una variedad diferenciable un campo tensorial es un mapa que a cada punto le asigna
+un tensor de un tipo arbitrario donde $V = T_p M$. Por ejemplo, la métrica es un campo
+tensorial de tipo $(0, 2)$ y por lo tanto es una función $g_p: T_p M times T_p M --> RR$.
+
+De forma similar a en el caso de los campos vectoriales para determinar si un campo
+tensorial es contínuo vamos a definir una base y unas componentes y el tensor será suave
+si las componentes son suaves.
+
+Si uno tiene un tensor de tipo $(p, q)$ $T$ y además una base de $T_p M$ {$e_i$} y 
+$dualspace(T_p M)$ ${omega^i}$ entonces las funciones componente de $T$ son:
+
+$ tensor(T, + i_1  ... i_p, - j_1  ... j_q)(p) = T_p (omega^(i_1)(p),  ..., omega^(i_p)(p), e_(j_1)(p), ..., e_(j_q)(p)) $
+
+== Pullback de un tensor
 
 
 = Derivada de Lie
