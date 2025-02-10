@@ -275,6 +275,13 @@ De esta forma uno puede ver que determinando los $n$ números correspondiendo a 
 la función $f$ queda perfectamente determinada por lo que el espacio $dualspace(V)$ tiene
 $n$ dimensiones.
 
+== Pullback de covectores
+
+Si uno tiene un covector y un mapeado entre variedades $F: M --> N$ se puede definir el 
+pullback $pb(F): dualspace(T_F(p) N) --> dualspace(T_p M) $ de un elemento del espacio 
+cotangente $omega$ mediante $(pb(F) omega) (v) = omega compose pf(F)(v)$. Es decir, se 
+translada $v$ a $T_F(p) N$ con el pushforward y ahí si aplica $omega$.
+
 == Tensores
 Ahora uno podría querer extender este razonamiento a funciones con más de un 'input' y que
 devuelvan vectores en vez de solo escalares. Esto da la noción de funciones multilineales.
@@ -335,6 +342,9 @@ $ tensor(T, + i_1  ... i_p, - j_1  ... j_q)(p) = T_p (omega^(i_1)(p),  ..., omeg
 
 == Pullback de un tensor
 
+Igual que podemos hacer pullbacks y pushforwards de funciones escalares y campos
+vectoriales se puede hacer el pullback de un campo tensorial usando un mapeado contínuo 
+entre variedades
 
 = Derivada de Lie
 
