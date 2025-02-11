@@ -321,7 +321,7 @@ $ w^i = tensor(T, +i, - j k) u^j v^k $
 
 Por lo tanto uno obtiene de forma automática lo que quería si permite copias de el espacio
 dual en el 'input' de la función. De esta manera se define un tensor de tipo $(p, q)$ o
-$p$ veces covariante y $q$ veces contravariante como una aplicación multilineal
+$p$ veces contravariante y $q$ veces covariante como una aplicación multilineal
 
 $ T: underbrace(dualspace(V) times ... times dualspace(V), p "copias") times underbrace(V times ... times V, q "copias") --> RR $
 
@@ -344,7 +344,18 @@ $ tensor(T, + i_1  ... i_p, - j_1  ... j_q)(p) = T_p (omega^(i_1)(p),  ..., omeg
 
 Igual que podemos hacer pullbacks y pushforwards de funciones escalares y campos
 vectoriales se puede hacer el pullback de un campo tensorial usando un mapeado contínuo 
-entre variedades
+entre variedades. En el libro que tengo solo explican este concepto para tensores puramente
+covariantes, esto es suficiente en nuestro caso puesto que el resto de componentes se 
+podrían bajar con el tensor métrico.
+
+Sea $T$ un tensor $k$ veces covariante, es decir $T: (T_p N)^k --> RR$, y $F: M--> N$ un
+mapa.
+
+El pullback de $T$ se define como $T$ actuando sobre el pushforward de los vectores de 
+$T_(F^(-1)(p)) M$.
+
+$ ( pb(F)T)_(p)(A, B, C, D, ...) = T_F(p) (dd(F)_p (A), dd(F)_p (B), dd(F)_p (C),
+dd(F)_p (D), ...) $
 
 = Derivada de Lie
 
@@ -404,3 +415,25 @@ también se anula puesto que $Y(0) = X(dot) = 0$. Por lo tanto ambas expresiones
 en ambos casos.
 
 $ lie(X, Y) = [X, Y] $
+
+== Derivada de Lie de un tensor covariante
+La derivada de Lie de un tensor covariante se define de forma similar a los campos 
+vectoriales usando el pullback y el pushforward.
+
+$ lie(X, T) = lim_(t->0) (pb(phi.alt^t) T_(phi.alt^t (p)) - T_p )/t $
+
+Esta expresión puede demostrarse que es equivalente a
+
+$ (lie(X, T))(A, B, ...) = lie(X, (T(A, B, ...))) - T(lie(X, A), B, ...)
+- T(A, lie(X, B), ...) $
+
+donde $lie(X, (T(A, B, ...)))$ es la derivada del campo escalar que a cada punto le asigna
+el valor al evaluar los campos vectoriales con $T$.
+
+// todo: demostrarlo
+
+=== Tensor métrico
+
+En el caso del tensor métrico se tiene que 
+
+$ lie(X, g)  $
