@@ -436,4 +436,7 @@ el valor al evaluar los campos vectoriales con $T$.
 
 En el caso del tensor métrico se tiene que 
 
-$ lie(X, g)  $
+$ (lie(X, g))_(alpha beta) = X^mu diff_mu tensor(g, - alpha beta) + tensor(g, - alpha mu) diff_beta X^mu + tensor(g, -mu beta) partial_alpha X^mu = 
+cdv(X_beta, alpha) + cdv(X_alpha, beta) $
+
+

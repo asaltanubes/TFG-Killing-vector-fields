@@ -21,3 +21,9 @@
 
 #let svecfield(manifold) = $frak(X)(manifold)$ 
 #let dualspace(space) = $space^*$
+
+#let cdv(val, ..subindex) = {
+  
+  for sym in subindex.pos() {$nabla_sym$}
+  
+  $val$}
