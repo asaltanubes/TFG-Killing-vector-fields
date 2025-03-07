@@ -69,7 +69,78 @@ $     cdv(K_gamma, alpha, beta) - cdv(K_gamma, beta, alpha)
 Ahora identificando el término $cdv(K_alpha, beta, gamma) = - cdv(K_gamma,
 beta, alpha)$ de la @ec:riemann-applying-to-killing-vector se obtiene
 
-$ cdv(K_beta, gamma, alpha) = - tensor(R, -alpha beta gamma, delta) K_delta $
+$ cdv(K_beta, gamma, alpha) = - tensor(R, -alpha beta gamma, delta) K_delta $<ec:rel-der-killing-vector>
 
 Con esta ecuación se puede resolver en términos de la serie de Taylor de los campos de
-Killing. Para ello 
+Killing. Para ello se expande $K_delta$ en series de Taylor. Usando la notación multi-índice
+de forma que 
+$ alpha = (alpha_1, alpha_2, alpha_3, ..., alpha_n) in NN^n \ 
+|alpha| = sum_i alpha_i \
+mipdv(f, alpha) = (diff^(|alpha|) f)/((diff x^1)^(alpha_1) (diff x^2)^(alpha_2)...
+(diff x^n)^(alpha_n)) \ 
+
+alpha! = #sym.product _i alpha_i !
+
+x^alpha = #sym.product _i (x^i)^(alpha_i)
+$
+
+La serie de taylor queda como
+
+$ K_delta (x) = sum_(|alpha|=0)^oo (mipdv(K, alpha)(p))/alpha! (x-p)^alpha $
+
+Ahora mediante la @ec:rel-der-killing-vector los términos de $|alpha| = 2$  quedan determinados
+por $K(p)$ y $partial_mu K(p)$, los términos de $|alpha|=3$ se obtienen mediante las derivadas
+de la misma ecuación y así para cualquier $|alpha|$. Todas estas relaciones son lineales
+por lo que se puede escribir
+
+$ mipdv(K_delta, alpha) =
+ tensor(hat(A), -delta, gamma)(p, alpha) K_gamma (p)
++tensor(hat(B), -delta, gamma, beta)(p, alpha) partial_gamma K_beta (p)  
+$
+
+Sustituyendo en la serie de taylor se obtiene
+$ K_delta (x) &= sum_(|alpha| = 0)^oo (mipdv(K, alpha)(p))/alpha! (x-p)^alpha  
+ \ &= sum_(|alpha| = 0)^oo 1/alpha! (x-p)^alpha (tensor(hat(A), -delta, gamma)(p, alpha) K_gamma (p)
++tensor(hat(B), -delta, gamma, beta)(p, alpha) partial_gamma K_beta (p)  
+) 
+\ &= (sum_(|alpha| = 0)^oo 1/alpha! (x-p)^alpha tensor(hat(A), -delta, gamma)(p, alpha)) K_gamma (p)
++(sum_(|alpha| = 0)^oo 1/alpha! (x-p)^alpha tensor(hat(B), -delta, gamma, beta)(p, alpha)) partial_gamma K_beta (p)
+\ &= tensor(A, -delta, gamma)(x, p)K_gamma (p) + 2 tensor(B, -delta, gamma beta)(x, p) partial_gamma K_beta (p)
+$
+
+Ahora se puede imponer una condición adicional en esta ecuación usando la ecuación de killing
+puesto que 
+$ partial_alpha K_beta = -partial_beta K_alpha + 2 christoffel(sigma, alpha, beta) K_sigma $
+
+aplicando esto se obtiene
+
+$ K_delta (x) &= tensor(A', -delta, gamma)(x, p) K_gamma (p) + 
+                tensor(B, -delta, gamma sigma)(x, p) (partial_gamma K_sigma (p) + partial_gamma K_sigma (p))
+                
+             \ &= tensor(A', -delta, gamma)(x, p) K_gamma (p) + 
+tensor(B, -delta, gamma sigma)(x, p) (partial_gamma K_sigma (p) 
+                                    - partial_sigma K_gamma (p) + 2 christoffel(alpha, gamma, sigma) K_alpha (p))
+\ &= underbrace((tensor(A', -delta, alpha)(x, p) + 2 tensor(B, -delta, gamma sigma)(x, p)christoffel(alpha, gamma, sigma)), tensor(A, -delta, alpha)(x, p)) K_alpha + 
+tensor(B, -delta, gamma sigma)(x, p) (partial_gamma K_sigma (p) - partial_sigma K_gamma (p))
+\ &= tensor(A, -delta, gamma)(x, p) K_gamma (p) 
+   + tensor(B, -delta, gamma sigma)(x, p)(partial_gamma K_sigma (p) - partial_sigma K_gamma (p))
+ $
+
+En esta ecuación final se obtiene una información muy importante. Puesto que los tensores
+$A$ y $B$ son independientes del campo de killing los campos de killing forman un espacio
+vectorial de dimensión $n + (n (n-1))/2 = (n(n+1))/2$. Esto es puesto que los campos de 
+killing quedan definidos por los valores de $K_gamma (p)$ y $partial_gamma K_sigma (p)$,
+el primer término da $n$ elementos y el segundo por ser antisimétrico en la ecuación $n(n-1)/2$.
+
+Además la base de este espacio se puede separar en 2 tipos de vectores, las translaciones
+definidas como los elementos que anulan el segundo término = 0\
+
+
+$ K^((gamma))_alpha (p) = delta^gamma_alpha \
+partial_sigma K^((gamma))_alpha (p)= 0  $ donde $gamma$ es una etiqueta para cada campo
+
+y las rotaciones definidas por 
+
+$ K^((gamma, sigma))_alpha (p) = 0\
+
+ $

@@ -27,3 +27,6 @@
   for sym in subindex.pos() {$nabla_sym$}
   
   $val$}
+
+#let mipdv(val,super) = $ D^super val $
+#let christoffel(index1, index2, index3) = $tensor(Gamma, index1, -index2 index3)$
