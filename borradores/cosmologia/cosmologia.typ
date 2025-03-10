@@ -124,7 +124,7 @@ tensor(B, -delta, gamma sigma)(x, p) (partial_gamma K_sigma (p)
 tensor(B, -delta, gamma sigma)(x, p) (partial_gamma K_sigma (p) - partial_sigma K_gamma (p))
 \ &= tensor(A, -delta, gamma)(x, p) K_gamma (p) 
    + tensor(B, -delta, gamma sigma)(x, p)(partial_gamma K_sigma (p) - partial_sigma K_gamma (p))
- $
+ $<ec-cosm:general-killingfield-form>
 
 En esta ecuación final se obtiene una información muy importante. Puesto que los tensores
 $A$ y $B$ son independientes del campo de killing los campos de killing forman un espacio
@@ -132,15 +132,38 @@ vectorial de dimensión $n + (n (n-1))/2 = (n(n+1))/2$. Esto es puesto que los c
 killing quedan definidos por los valores de $K_gamma (p)$ y $partial_gamma K_sigma (p)$,
 el primer término da $n$ elementos y el segundo por ser antisimétrico en la ecuación $n(n-1)/2$.
 
-Además la base de este espacio se puede separar en 2 tipos de vectores, las translaciones
-definidas como los elementos que anulan el segundo término = 0\
+Para definir una base de este espacio se elige un conjunto de campos de killing
+dando una serie de elementos del espacio tangente en $p$ y a partir de la 
+@ec-cosm:general-killingfield-form se extiende a una base en todo el espacio. 
+Es importante decir que el hecho de que se pueda elegir una base con n elementos
+no implica que existan n campos de Killing. Esto es porque puede ocurrir que 
+los términos de $A$ y $B$ al combinarlos con ciertos elementos de la base den
+lugar a un campo de Killing nulo, esto indica que el espacio no tiene todas las 
+posibles simetrías de un espacio con su dimensión.
 
+
+Por un lado tenemos los términos que acompañan al término $tensor(A, - delta, gamma)$.
+Aquí se tendrán n posibles términos, uno por cada dimensión del espacio. De esta forma
+se puede elegir de forma que el elemento $gamma$ todas sus componentes sean nulas excepto
+el componente $gamma$ que valga uno.
 
 $ K^((gamma))_alpha (p) = delta^gamma_alpha \
-partial_sigma K^((gamma))_alpha (p)= 0  $ donde $gamma$ es una etiqueta para cada campo
+partial_sigma K^((gamma))_alpha (p)= 0  $ 
 
-y las rotaciones definidas por 
+donde $gamma$ es una etiqueta para cada campo. Si un espacio tiene una base completa
+de estos elementos en todo punto se llama homogéneo. La razón de esta definición se 
+explorará más adelante junto con la isotropía.
+
+
+Además de los elementos anteriores se tienen los términos de $tensor(B, -delta, gamma sigma)$. 
+Aquí se sigue el mismo proceso que en la parte anterior, sin embargo, por la 
+antisimetría de estos términos usando una notación similar
+a la anterior pero haciendo las derivadas parciales no nulas
+se tiene que $K^((gamma, sigma)) = - K^((sigma, gamma))$. Para introducir
+esto se definen $n(n-1) slash 2$ términos independientes de la forma
 
 $ K^((gamma, sigma))_alpha (p) = 0\
+partial_alpha K^(gamma, sigma)_beta = delta^(gamma, sigma)_(alpha, beta) - delta^(sigma, gamma)_(alpha, beta)
+$
 
- $
+Si un espacio tiene una base completa de estos elementos en todo punto lo llamamos isótropo.
