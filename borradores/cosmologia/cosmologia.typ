@@ -28,8 +28,8 @@ frente a translaciones y frente a rotaciones de este. Esto lleva a pensar que la
 del espacio debe tener estas propiedades puesto que si no las tuviera se generarían 
 fuerzas gravitatorias que romperían la simetría. 
 
-El primer paso definir en que consisten las rotaciones y translaciones para poder definir
-isotropía y homogeneidad de forma rigurosa.
+El primer paso definir de forma rigurosa que significa isotropía y homogeneidad en 
+una variedad diferenciable.
 
 === Forma general de los campos de Killing
 
@@ -86,7 +86,7 @@ $
 
 La serie de taylor queda como
 
-$ K_delta (x) = sum_(|alpha|=0)^oo (mipdv(K, alpha)(p))/alpha! (x-p)^alpha $
+$ K_delta (x) = sum_(|alpha|=0)^oo (mipdv(K_delta, alpha)(p))/alpha! (x-p)^alpha $
 
 Ahora mediante la @ec:rel-der-killing-vector los términos de $|alpha| = 2$  quedan determinados
 por $K(p)$ y $partial_mu K(p)$, los términos de $|alpha|=3$ se obtienen mediante las derivadas
@@ -99,7 +99,7 @@ $ mipdv(K_delta, alpha) =
 $
 
 Sustituyendo en la serie de taylor se obtiene
-$ K_delta (x) &= sum_(|alpha| = 0)^oo (mipdv(K, alpha)(p))/alpha! (x-p)^alpha  
+$ K_delta (x) &= sum_(|alpha| = 0)^oo (mipdv(K_delta, alpha)(p))/alpha! (x-p)^alpha  
  \ &= sum_(|alpha| = 0)^oo 1/alpha! (x-p)^alpha (tensor(hat(A), -delta, gamma)(p, alpha) K_gamma (p)
 +tensor(hat(B), -delta, gamma, beta)(p, alpha) partial_gamma K_beta (p)  
 ) 
@@ -148,11 +148,12 @@ se puede elegir de forma que el elemento $gamma$ todas sus componentes sean nula
 el componente $gamma$ que valga uno.
 
 $ K^((gamma))_alpha (p) = delta^gamma_alpha \
-partial_sigma K^((gamma))_alpha (p)= 0  $ 
+partial_sigma K^((gamma))_alpha (p)= 0  $<ec-cosmo:homogeneidad>
 
 donde $gamma$ es una etiqueta para cada campo. Si un espacio tiene una base completa
-de estos elementos en todo punto se llama homogéneo. La razón de esta definición se 
-explorará más adelante junto con la isotropía.
+de estos elementos en todo punto, y además estos dan lugar a compos de Killing no nulos
+el espacio se denominará homogéneo. La razón de esta definición se explorará más adelante 
+junto con la isotropía.
 
 
 Además de los elementos anteriores se tienen los términos de $tensor(B, -delta, gamma sigma)$. 
@@ -164,6 +165,36 @@ esto se definen $n(n-1) slash 2$ términos independientes de la forma
 
 $ K^((gamma, sigma))_alpha (p) = 0\
 partial_alpha K^(gamma, sigma)_beta = delta^(gamma, sigma)_(alpha, beta) - delta^(sigma, gamma)_(alpha, beta)
-$
+$<ec-cosmo:isotropia>
 
-Si un espacio tiene una base completa de estos elementos en todo punto lo llamamos isótropo.
+Si un espacio tiene una base completa de estos elementos en todo punto y estos dan lugar
+a campos de Killing lo llamamos isótropo.
+
+Para comprender estas definiciones conviene trabajar en una base ortonormal.
+
+La definición dada en @ec-cosmo:homogeneidad da lugar a una serie de isotropías de forma 
+que las coordenadas se transforman como $x'^mu =x^mu  + t K^mu (x) + Order(t^2)$.
+De esta forma si la @ec-cosmo:homogeneidad se cumple todos los puntos son isótropos a su
+entorno.
+
+Por otro lado ante la definición @ec-cosmo:isotropia, en el caso de la base ortonormal
+cada un de los elementos corresponde a rotaciones. Esto es porque al aplicar la isotropía
+asociada se obtiene que para un vector arbitrario $ V'^mu(x) = pf(phi.alt)V^mu(x) =
+pdv(x'^mu, x^nu) V^nu = (delta^mu_nu + t partial_nu K^mu)V^nu = V^mu + t Delta V^mu $
+
+El vector al aplicar la transformación se convierte en sí mismo mas una componente que es
+perpendicular al propio vector ($partial_nu K^mu =^(K(p) = 0) cdv(K^mu, nu) =^(g=delta) cdv(tensor(delta, mu alpha) K_alpha, nu)
+ = tensor(delta, mu alpha) cdv(K_alpha, nu) = tensor(delta, mu alpha) partial_nu K_alpha =^("Si" mu = nu) 0 $), además esta transformación conserva la norma por lo que
+podemos concluir que se trata de una rotación. Un espacio con todas las posibles rotaciones
+en todos los puntos es isótropo.
+
+Además una variedad que es al mismo tiempo homogénea e isótropa tiene todos los posibles 
+campos de Killing por lo que también se le denomina *maximalmente simétrica*
+
+Nuestro espacio tiempo es homogéneo e isótropo *espacialmente*. Esto quiere decir que en 
+la variedad pseudo-rimanniana que es el espacio-tiempo tiene que haber una familia
+de sub-variedades Rimannianas de dimensión 3 cuyos vectores tangentes son de tipo espacial
+y que además son homogéneos e isótropos de acuerdo a la definiciones @ec-cosmo:homogeneidad
+y @ec-cosmo:isotropia.
+
+== Forma general de un espacio-tiempo espacialmente homogéneo e isótropo
