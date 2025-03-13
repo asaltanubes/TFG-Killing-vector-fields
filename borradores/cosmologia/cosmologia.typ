@@ -198,3 +198,42 @@ y que además son homogéneos e isótropos de acuerdo a la definiciones @ec-cosm
 y @ec-cosmo:isotropia.
 
 == Forma general de un espacio-tiempo espacialmente homogéneo e isótropo
+Comenzamos a tratar la métrica del espacio, lo primero es separar las coordenadas
+en una parte espacial y una temporal. Es decir, llamando a la variedad 
+espacio-temporal $cal(M)$ existe una hipersuperficie, $EE subset cal(M)$, de tres
+dimensiones de tipo espacial que además es maximalmente simétrica que va a
+representar el espacio en un instante de tiempo concreto.
+
+Eligiendo un sistema de coordenadas para $EE$, ${x^i}$, se tiene 
+una base de vectores del espacio tangente a la superficie espacial. Esta base
+puede extenderse a una base completa del espacio tangente del espacio-tiempo 
+mediante el método de ortonormalización de Gram-Schmidt se obtiene un campo 
+normal a la superficie $n^mu$. Con esto se puede extender el sistema de 
+coordenadas en $EE$ a un sistema de coordenadas en $cal(M)$. Para ello se coge
+cada punto $x^mu in EE$ y se le asigna una geodésica con la condición inicial
+$gamma(0) = x^mu$ $dot(gamma)(0) = n$. A este conjunto de puntos se les asignan
+las coordenadas ${x^0 = s, x^i}$ donde $x^i$ son las coordenadas asignadas a la 
+variedad y $s$ es la longitud de la geodésica entre $gamma(0)$ y el punto 
+correspondiente.
+
+Así el espacio en el tiempo '$tau$' corresponde a la hipersuperficie correspondiente
+a $s=tau$. 
+
+Con este sistema de coordenadas nos gustaría demostrar que la forma de la métrica 
+es $dd(s)^2 = dd(t)^2 - a^2(t) hat(g)_(i j) dd(x)^i dd(x)^j$. Para ello primero demostramos que la métrica tiene forma de $dd(s)^2 = dd(t)^2 - h_(i j) dd(x)^i dd(x)^j$, que todas las hipersuperficies con $s="cte"$ son maximalmente simétricas y por
+último que en estas hipersuperficies, por ser maximalmente simétricas, $dot(h) prop h$ y por lo tanto $h = a(t)^2 g$.
+
+Para el primer paso nos basta con comprobar que $g_(0 i) = 0$ en todo instante 
+de tiempo de forma que en la métrica solo hay términos puramente espaciales y un
+término puramente temporal.
+
+Para ello podemos usar la ecuación geodésica. Por construcción en este sistema de 
+coordenadas las geodésicas con la condición inicial $dot(x)^mu = delta^mu_0$
+tienen coordenadas espaciales constantes. La ecuación geodésica resulatante es 
+
+$ dot.double(x)^i = 0 = christoffel(i, mu, nu) dot(x)^mu dot(x)^nu = 
+christoffel(i, mu, nu) delta^mu_0 delta^nu_0 = christoffel(i, 0, 0) =>\ =>
+tensor(Gamma, -i 0 0) = 0 $.
+
+Usando ahora la relación entre los símbolos de christoffel y la métrica se obtiene
+que 
