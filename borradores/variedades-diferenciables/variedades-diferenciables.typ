@@ -439,4 +439,11 @@ En el caso del tensor métrico se tiene que
 $ (lie(X, g))_(alpha beta) = X^mu diff_mu tensor(g, - alpha beta) + tensor(g, - alpha mu) diff_beta X^mu + tensor(g, -mu beta) partial_alpha X^mu = 
 cdv(X_beta, alpha) + cdv(X_alpha, beta) $
 
+Esto da lugar a la ecuación que define los *campos de Killing*. 
+
+Un campo de Killing será aquel campo cuyo flujo define una isometría, es decir, que 
+conserva la métrica y por lo tanto
+
+$ lie(X, g) = X^mu diff_mu tensor(g, - alpha beta) + tensor(g, - alpha mu) diff_beta X^mu + tensor(g, -mu beta) partial_alpha X^mu = 
+cdv(X_beta, alpha) + cdv(X_alpha, beta) = 0 $<ec-variedades:ec-killing>
 

@@ -18,7 +18,7 @@ Por ello se da una idea del camino que lleva la demostración.
 + Definir las condiciones que se imponen a la métrica
 + Se demuestra que la métrica tiene forma $dd(s)^2 = -dd(t)^2 + a(t) tensor(g, - i j)(x) dd(x^i) dd(x^j)$
 + Se demuestra que la parte espacial de la métrica $tensor(g, - i j)$ tiene que ser un espacio de curvatura seccional constante
-+ Se demuestra que los espacios de curvatura seccional constante son isométricos con una n esfera, hiperboloide o un espacio euclídeo de n dimensiones.
++ Aplicando el teorema de Killing-Hopf se obtiene que la parte espacial de la métrica tiene que ser isométrica a una esfera, un hiperboloide o un espacio plano y se obtiene la expresión de estas métricas.
 
 == Condiciones para el espacio tiempo a gran escala
 
@@ -204,17 +204,17 @@ espacio-temporal $cal(M)$ existe una hipersuperficie, $EE subset cal(M)$, de tre
 dimensiones de tipo espacial que además es maximalmente simétrica que va a
 representar el espacio en un instante de tiempo concreto.
 
-Eligiendo un sistema de coordenadas para $EE$, ${x^i}$, se tiene 
+Eligiendo un sistema de coordenadas para $EE$, ${hat(x)^i}$, se tiene 
 una base de vectores del espacio tangente a la superficie espacial. Esta base
 puede extenderse a una base completa del espacio tangente del espacio-tiempo 
-mediante el método de ortonormalización de Gram-Schmidt se obtiene un campo 
+mediante el método de ortonormalización de Gram-Schmidt. De esta forma se obtiene un campo 
 normal a la superficie $n^mu$. Con esto se puede extender el sistema de 
 coordenadas en $EE$ a un sistema de coordenadas en $cal(M)$. Para ello se coge
 cada punto $x^mu in EE$ y se le asigna una geodésica con la condición inicial
-$gamma(0) = x^mu$ $dot(gamma)(0) = n$. A este conjunto de puntos se les asignan
-las coordenadas ${x^0 = s, x^i}$ donde $x^i$ son las coordenadas asignadas a la 
-variedad y $s$ es la longitud de la geodésica entre $gamma(0)$ y el punto 
-correspondiente.
+$gamma(0) = x^mu$ $dot(gamma)(0) = n$. Al conjunto de puntos que traza la geodésica
+se les asignan las coordenadas $[x^mu] = (s, hat(x)^i)$ donde $x^i$ son las coordenadas 
+asignadas al punto inicial en la variedad y $s$ es la longitud de la geodésica entre 
+$gamma(0)$ y el punto correspondiente.
 
 Así el espacio en el tiempo '$tau$' corresponde a la hipersuperficie correspondiente
 a $s=tau$. 
@@ -237,3 +237,143 @@ tensor(Gamma, -i 0 0) = 0 $.
 
 Usando ahora la relación entre los símbolos de christoffel y la métrica se obtiene
 que 
+
+$ tensor(Gamma, -i 0 0) = 1/2 (2 partial_0 g_(i 0) - partial_i g_(0 0)) = 0 $
+
+Puesto que $tensor(g, -0 0) = norm(n)^2$, por construcción $partial_i g_(0 0) = 0$.
+De esta forma se obtiene que 
+$ partial_0 g_(i 0) = 0 $
+Combinando esto con la condición inicial $g_(i 0)(s=0, x^i) = 0$ se obtiene esta igualdad 
+para todo punto y todo tiempo. De esta forma se concluye que la métrica tiene que ser de 
+la forma
+
+$ dd(s)^2 = dd(t)^2 - h_(i j) dd(x)^i dd(x)^j $
+
+Para la siguiente parte de la demostración es necesario demostrar primero que todas las 
+superficies con $s="cte"$ son maximalmente simétricas. Es decir, que no aparecen 
+anisotropías ni inhomogeneidades al avanzar el tiempo. Esto se puede demostrar de forma 
+similar a como hemos demostrado que la métrica es separable en espacio y tiempo pero 
+aplicándolo a los campos de Killing.
+
+Partimos de que la superficie $s=0$ es homogénea e isótropa. Es decir, en términos de 
+campos de Killing, existen campos satisfaciendo las condiciones  @ec-cosmo:homogeneidad
+y @ec-cosmo:isotropia para los índices espaciales y con $K^0(s=0, x^i) = 0$.
+
+Usando la componente $(0, 0)$ de la ecuación de Killing @ec-variedades:ec-killing se 
+obtiene
+
+$ 2 g_(0 0) partial_0 K^0 + cancel(K^alpha partial_alpha g_00) = 0 =>\ 
+=> partial_0 K^0 = 0 $<ec-cosm:derivative-wrt-time-of-killing-field-0th-comp>
+
+Esto unido a la condición inicial $K(s=0, x^i) = 0$ implica que $K^0 = 0$ en todo espacio 
+y tiempo. Es decir, los campos de Killing no pasan a ser de tipo temporal y mantienen su 
+espacialidad.
+
+Si las otras componentes de los campos de Killing también se conservan entonces podemos
+concluir que el resto de superficies a tiempo constante son maximalmente simétricas puesto
+que ningun campo se anularía ni tampoco ocurriría que dos campos dejaran de ser únicos en 
+alguna región reduciendo el número de simetrías.
+
+Para ello usamos las componentes $(0, i)$ de la ecuación de Killing
+
+$ cancel(g_(0 alpha) partial_i K^alpha) + g_(i alpha) partial_0 K^alpha + 
+cancel(K^alpha partial_alpha g_(0 i)) = 0 => \ => partial_0 K^i = 0 $<ec-cosm:derivative-wrt-time-of-killing-field-ith-comp>
+
+donde el primer término se anula cuando $alpha = 0$ por la 
+@ec-cosm:derivative-wrt-time-of-killing-field-0th-comp y el resto puesto que la métrica
+es separable en parte espacial y temporal. El segundo término se anula por la separabilidad
+de la métrica. La implicación se debe a que la parte espacial de la métrica es no
+degenerada por tratarse de una variedad Riemanniana, por lo tanto para cada componente 
+espacial de $partial_0 K^i$ tiene que haber un término de $g$ que no se anule dando la igualdad.
+
+Esto combinado con las condiciones iniciales correspondientes a cada campo de Killing da 
+lugar a que todos las superficies con tiempo constante son variedades
+Riemannianas cuya métrica es $h$ y que son maximalmente simétricas.
+
+Para demostrar el último punto de esta sección, que la métrica tiene la forma
+
+$ dd(s)^2 = dd(t)^2 - a^2(t) hat(g)_(i j) dd(x)^i dd(x)^j $<ec-cosm:metric-general-form-with-a-and-g>
+
+primero hay que demostrar un teorema que aplica a las variedades Riemannianas maximalemente
+simétricas.
+
+Este teorema dice que si uno tiene un campo tensorial $T_(alpha beta)$ en una variedad 
+maximalmente simétrica y se cumple que $lie(K, T) = 0$ donde $K$ es un campo de Killing
+entonces $T_(alpha beta) prop g_(alpha beta)$.
+
+Para demostrar esto partimos de la ecuación de Killing usando el conjunto de campos que
+definen la isometría @ec-cosmo:isotropia.
+
+$ lie(K, T) = 
+T_(gamma beta) partial_alpha K^gamma + T_(alpha gamma) partial_beta K^gamma + cancel(K^gamma partial_gamma T_(alpha beta)) 
+=^(partial_alpha K^gamma = cdv(K^gamma, alpha))
+tensor(T, gamma, -beta) partial_alpha K_gamma + tensor(T, -alpha, gamma) partial_beta K_gamma = 0  $
+
+Esto se puede simplificar de la siguiente forma
+
+$ tensor(T, gamma, -beta) partial_alpha K_gamma + tensor(T, -alpha, gamma) partial_beta K_gamma =
+(tensor(T, gamma, -beta) delta^sigma_alpha+tensor(T, -alpha, gamma) delta^sigma_beta) partial_sigma K_gamma = 0 $
+
+Usando que para los campos elegidos se cumple la @ec-cosmo:isotropia se obtiene que
+
+$ tensor(T, gamma, -beta) delta^sigma_alpha + tensor(T, -alpha, gamma) delta^sigma_beta =
+tensor(T, sigma, -beta) delta^gamma_alpha + tensor(T, -alpha, sigma)delta^gamma_beta $
+
+Contrayendo los índices $alpha = sigma$ se obtiene
+
+$ n tensor(T, gamma, -beta) + tensor(T, -beta, gamma) = tensor(T, gamma, -beta) + delta^gamma_beta T =>
+\ => (n-1)tensor(T, gamma, -beta) + tensor(T, -beta, gamma) = delta^gamma_beta T $
+donde $n$ es la dimensión del espacio (en nuestro caso será 3 puesto que va a aplicar a la
+parte espacial unicamente) y $T := tensor(T, -alpha, alpha)$
+
+Esta última expresión puede simplificarse multiplicando por $g_(alpha gamma)$ y contrayendo
+índices se obtiene
+
+$ (n-1) T_(alpha beta) + T_(beta alpha) = g_(alpha beta) T $<ec-cosm:relation-killing-transported-tensor-fields-and-metric>
+
+Puesto que la parte derecha de la expresión es simétrica en alpha y beta también lo debe ser
+la parte izquierda por lo tanto
+
+$ (n-1) T_(alpha beta) + T_(beta alpha) &= (n-1) T_(beta alpha) + T_(alpha beta) => 
+\ => (n-2)T_(alpha beta) &= (n-2) T_(beta alpha) $
+
+puesto que nuestro caso de interés es $n=3$ podemos concluir que $T$ debe ser simétrico y 
+por lo tanto combinando esto con la @ec-cosm:relation-killing-transported-tensor-fields-and-metric
+se obtiene finalmente
+
+$ T_(alpha beta) = T/n g_(alpha beta) $
+
+#align(right)[$qed$]
+
+Ahora queremos aplicar este teorema a $dot(h)$ puesto que si se cumple entonces
+$dot(h) prop h$.
+
+Para ello usamos la ecuación de Killing y las relaciones de 
+@ec-cosm:derivative-wrt-time-of-killing-field-0th-comp y 
+@ec-cosm:derivative-wrt-time-of-killing-field-ith-comp.
+
+Derivando la ecuación de Killing con respecto a $partial_0$
+
+$ lie(K, h) = 0 => partial_0 (lie(K, h)) = 0 =>\
+=> partial_0(h_(sigma beta) partial_alpha K^sigma + h_(alpha sigma) partial_beta K^sigma 
++ K^sigma partial_sigma h_(alpha beta)) = \
+ dot(h)_(sigma beta) partial_alpha K^sigma + dot(h)_(alpha sigma) partial_beta K^sigma 
++ K^sigma partial_sigma dot(h)_(alpha beta)
++ cancel(h_(sigma beta) partial_alpha partial_0 K^sigma + h_(alpha sigma) partial_beta partial_0 K^sigma 
++ partial_0(K^sigma) partial_sigma h_(alpha beta)) = \
+=lie(K, dot(h)) = 0
+$
+
+Por lo tanto aplicando el teorema anterior obtenemos la siguiente ecuacion
+
+$ dot(h)_(alpha beta) = f(t) h_(alpha beta) $
+
+que dando la condición inicial $h(s=0)_(alpha beta) = hat(g)_(alpha beta)$ se obtiene la 
+solución 
+
+$ h_(alpha beta)(t, x) = e^(integral_0^t f(s) dd(s)) hat(g)_(alpha beta)(x) 
+= a^2(t) hat(g)_(alpha beta)(x) $
+
+demostrando la forma de la métrica descrita en @ec-cosm:metric-general-form-with-a-and-g.
+#align(right)[$qed$]
+
