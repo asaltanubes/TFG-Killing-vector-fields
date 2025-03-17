@@ -7,7 +7,7 @@ En cosmología la métrica fundamental que describe el espacio tiempo a gran esc
 métrica FLRW o de Friedman-Lemaître-Robertson-Walker. En coordenadas esféricas tiene la 
 siguiente expresión 
 
-$ dd(s)^2 = -dd(t)^2 + a^2(t)((dd(r)^2)/(1-k r^2) + r^2 dd(theta)^2 + r^2 sin(theta)^2 dd(phi)^2) $
+$ dd(s)^2 = -dd(t)^2 + a^2(t)((dd(r)^2)/(1-k r^2) + r^2 dd(theta)^2 + r^2 sin(theta)^2 dd(phi)^2) $<ec-cosm:métrica-FLRW>
 
 donde $a(t)$ es el llamado factor de escala y describe la expansión y contracción del 
 universo y $k$ es el signo de la curvatura del espacio.
@@ -41,13 +41,13 @@ van a corresponder a rotaciones y otros a translaciones.
 Un punto por el que comenzar es el tensor de riemann puesto que tiene simetrías similares
 a las de la ecuación de Killing
 
-$ tensor(R, - alpha beta gamma,  delta) K_delta = cdv(cdv(K_gamma, beta), alpha) - 
+$ tensor(R, delta, - alpha beta gamma) K_delta = cdv(cdv(K_gamma, beta), alpha) - 
 cdv(cdv(K_gamma, alpha), beta) $<ec:riemann-applying-to-killing-vector>
 
 Usando que el tensor de Riemann cumple la identidad de Bianchi 
 
-$ tensor(R, -alpha beta gamma, delta) + tensor(R, - gamma alpha beta, delta) + 
-tensor(R, - beta gamma alpha, delta) = 0 $
+$ tensor(R,delta, -alpha beta gamma) + tensor(R, delta,- gamma alpha beta) + 
+tensor(R, delta, - beta gamma alpha) = 0 $
 
 Y multiplicando por $K_delta$ y sustituyendo la @ec:riemann-applying-to-killing-vector se 
 obtiene
@@ -69,7 +69,7 @@ $     cdv(K_gamma, alpha, beta) - cdv(K_gamma, beta, alpha)
 Ahora identificando el término $cdv(K_alpha, beta, gamma) = - cdv(K_gamma,
 beta, alpha)$ de la @ec:riemann-applying-to-killing-vector se obtiene
 
-$ cdv(K_beta, gamma, alpha) = - tensor(R, -alpha beta gamma, delta) K_delta $<ec:rel-der-killing-vector>
+$ cdv(K_beta, gamma, alpha) = - tensor(R,delta, -alpha beta gamma) K_delta $<ec:rel-der-killing-vector>
 
 Con esta ecuación se puede resolver en términos de la serie de Taylor de los campos de
 Killing. Para ello se expande $K_delta$ en series de Taylor. Usando la notación multi-índice
@@ -341,7 +341,7 @@ puesto que nuestro caso de interés es $n=3$ podemos concluir que $T$ debe ser s
 por lo tanto combinando esto con la @ec-cosm:relation-killing-transported-tensor-fields-and-metric
 se obtiene finalmente
 
-$ T_(alpha beta) = T/n g_(alpha beta) $
+$ T_(alpha beta) = T/n g_(alpha beta) $<ec-cosm:parallel-02tensor-maximally-sym-space>
 
 #align(right)[$qed$]
 
@@ -377,3 +377,166 @@ $ h_(alpha beta)(t, x) = e^(integral_0^t f(s) dd(s)) hat(g)_(alpha beta)(x)
 demostrando la forma de la métrica descrita en @ec-cosm:metric-general-form-with-a-and-g.
 #align(right)[$qed$]
 
+== El subespacio $EE$ es de curvatura consante
+
+Para finalizar la derivación de la métrica se va a emplear el teorema de Killing Hopf
+
+Para enunciar este teorema es necesario intruducir una noción de curvatura llamada
+curvatura seccional. Esta noción de curvatura se obtiene eligiendo dos vectores
+del espacio tangente y extendiendo ese plano mediante geodésicas a un 'plano' del
+espacio, la curvatura seccional es entonces la curvatura gaussiana de esa superficie.
+
+Esta noción de curvatura puede demostrarse que se relaciona con el tensor de 
+curvatura mediante la siguiente ecuación
+
+$ K(u, v)= (R_(alpha beta gamma delta)u^alpha v^beta u^gamma v^delta)
+/((g_(alpha gamma) g_(beta delta) - 
+   g_(alpha beta) g_(gamma delta) )u^alpha v^beta u^gamma v^delta) $
+
+Donde $u$ y $v$ son los vectores tangentes al plano.
+
+El caso de que la curvatura seccional $K$ sea constante se obtiene que
+
+$ R_(alpha beta gamma delta) = K (g_(alpha gamma) g_(beta delta) - g_(alpha beta) g_(gamma delta)) $<ec-cosm:component-relation-riemann-secctional-curvatures-K-constant>
+
+El teorema de Killing-Hopf establece que cualquier pareja de espacios de curvatura 
+seccional constante son isométricos si tienen la misma curvatura seccional. 
+Es decir, tienen la misma métrica. Por lo tanto, solo existen 3 métricas distintas
+para estos espacios. En el caso de curvatura positiva se tienen los espacios 
+isométricos a una n-esfera, en el caso de curvatura nula se tiene el espacio euclídeo
+y en el caso de curvatura seccional negativa son isométricos a un hiperboloide.
+
+De esta forma si se demuestra que los espacios maximalmente simétricos son espacios
+de curvatura constante ya tendríamos la métrica de FLWR puesto que la única incógnita
+que queda en la métrica es $hat(g)$ correspondiente a la métrica de la 
+hipersuperficie $EE$ en $t=0$.
+
+Restringiéndonos a $EE$ tenemos que en esta subvariedad hay el número máximo de 
+campos de Killing. Puesto que el tensor de Riemann es intrínseco (solo depende de
+la inducida métrica y no del espacio inmerso) este tiene que ser invariante frente
+a isometrías y por lo tanto su derivada de Lie debe anularse. En concreto si 
+calculamos la derivada de Lie de los campos definidos en la isotropía
+@ec-cosmo:isotropia
+
+$ lie(K, R) &= cancel(K^alpha partial_alpha R_(mu nu gamma sigma)) 
++ R_(alpha nu gamma sigma) partial_mu K^alpha 
++ R_(mu alpha gamma sigma) partial_nu K^alpha
++ R_(mu nu alpha sigma) partial_gamma K^alpha
++ R_(mu nu gamma alpha) partial_delta K^alpha =\
+&= 
+  R_(alpha nu gamma sigma) partial_mu K^alpha 
+- R_(alpha mu gamma sigma) partial_nu K^alpha 
++ R_(alpha sigma mu nu) partial_gamma K^alpha 
+- R_(alpha gamma mu nu) partial_sigma K^alpha =\
+#scale(100%, $(cdv(K, alpha) = partial_alpha K) / "en rotaciones"$)&=
+
+  tensor(R, alpha, - nu gamma sigma) cdv(K_alpha, mu)
+- tensor(R, alpha, - mu gamma sigma) cdv(K_alpha, nu)
++ tensor(R, alpha, - sigma mu nu) cdv(K_alpha, gamma)
+- tensor(R, alpha, - gamma mu nu) cdv(K_alpha, sigma) =\
+&= 
+(
+  tensor(R, alpha, - nu gamma sigma) delta^epsilon_mu
+- tensor(R, alpha, - mu gamma sigma) delta^epsilon_nu
++ tensor(R, alpha, - sigma mu nu) delta^epsilon_gamma
+- tensor(R, alpha, - gamma mu nu) delta^epsilon_sigma
+) cdv(K_alpha, epsilon)=0
+$
+
+En esta última igualdad se tiene que $cdv(K_alpha, epsilon)$ es antisimétrico en 
+$alpha$ y $epsilon$. Además se tiene que este tensor es arbitrario por la condición
+de isotropía por lo tanto el término de los tensores de Riemann debe ser simétrico
+en $alpha$ y $epsilon$.
+
+$
+  tensor(R, alpha, - nu gamma sigma) delta^epsilon_mu
+- &tensor(R, alpha, - mu gamma sigma) delta^epsilon_nu
++ tensor(R, alpha, - sigma mu nu) delta^epsilon_gamma
+- tensor(R, alpha, - gamma mu nu) delta^epsilon_sigma 
+= \
+&=
+  tensor(R, epsilon, - nu gamma sigma) delta^alpha_mu
+- tensor(R, epsilon, - mu gamma sigma) delta^alpha_nu
++ tensor(R, epsilon, - sigma mu nu) delta^alpha_gamma
+- tensor(R, epsilon, - gamma mu nu) delta^alpha_sigma
+$<ec-cosm:antisimetry-riemann-tensor-lie-derivative>
+
+Para poder demostrar la ecuación que tenemos que obtener una relación entre el 
+tensor de Riemann y la métrica. Por lo tanto parece buena idea realizar una 
+contracción en esta ecuación con $epsilon=mu$ puesto que de esta forma solo 
+quedan tensores de Riemann y de Ricci. Además puesto que el tensor de Ricci es
+intrínseco por lo que aplicando @ec-cosm:parallel-02tensor-maximally-sym-space 
+$ lie(K, R_(alpha beta)) = 0 => R_(alpha beta) = R/n g_(alpha beta) $<ec-cosm:ricci-metric-relation>
+
+Realizando la contracción de $epsilon=mu$ a la relación en la 
+@ec-cosm:antisimetry-riemann-tensor-lie-derivative
+
+$ "LHS" &=  
+  tensor(R, alpha, - nu gamma sigma) delta^mu_mu
+- tensor(R, alpha, - mu gamma sigma) delta^mu_nu
++ tensor(R, alpha, - sigma mu nu) delta^mu_gamma
+- tensor(R, alpha, - gamma mu nu) delta^mu_sigma \
+&=
+n tensor(R, alpha, - nu gamma sigma) 
+- tensor(R, alpha, - nu gamma sigma)
++ tensor(R, alpha, - sigma gamma nu) 
+- tensor(R, alpha, - gamma sigma nu)  \
+&=
+(n-1) tensor(R, alpha, - nu gamma sigma) 
++ underbrace(tensor(R, alpha, - sigma gamma nu) 
++ tensor(R, alpha, - gamma nu sigma), "identidad de Bianchi")  \
+&=
+(n-1) tensor(R, alpha, - nu gamma sigma) 
+- tensor(R, alpha, - nu sigma gamma)
+
+\ \
+"RHS" &= 
+  tensor(R, mu, - nu gamma sigma) delta^alpha_mu
+- underbrace((tensor(R, mu, - mu gamma sigma) delta^alpha_nu), R_(alpha beta gamma sigma) = - R_(beta alpha gamma sigma))
++ tensor(R, mu, - sigma mu nu) delta^alpha_gamma
+- tensor(R, mu, - gamma mu nu) delta^alpha_sigma \
+&=
+  tensor(R, alpha, - nu gamma sigma) 
++ tensor(R, - sigma nu) delta^alpha_gamma
+- tensor(R, - gamma nu) delta^alpha_sigma \
+&=
+-  tensor(R, alpha, - nu sigma gamma) 
++ tensor(R, - sigma nu) delta^alpha_gamma
+- tensor(R, - gamma nu) delta^alpha_sigma
+
+
+\ \ 
+
+"LHS" &= "RHS" + #[@ec-cosm:ricci-metric-relation]
+ => \ &=>
+tensor(R, alpha, - nu gamma sigma)  = 
+R/(n(n-1)) (
+  tensor(g, - sigma nu) delta^alpha_gamma
+- tensor(g, - gamma nu) delta^alpha_sigma) =>\
+
+dot g_(alpha beta)
+&=> 
+tensor(R, -beta nu gamma sigma) = R/(n(n-1)) (g_(sigma nu) g_(beta gamma) - g_(gamma nu) g_(beta sigma)
+
+)
+$
+
+Con esto quedaría demostrada la ecuación 
+@ec-cosm:component-relation-riemann-secctional-curvatures-K-constant si se cumple 
+que el escalar de curvatura $R$ es constante. Puesto que esta cantidad es contracción
+del tensor de Riemann $R = tensor(R, alpha beta, - alpha beta)$ también es intrínseco
+y por lo tanto debe cumplir
+
+$ lie(K, R) = K^alpha partial_alpha R = 0 $
+
+Aplicando la condición de homogeneidad @ec-cosmo:homogeneidad queda demostrado que 
+este escalar es constante y por lo tanto aplica el teorema de Killing-Hopf.
+De esta forma la parte espacial de la métrica tiene que ser isométrica a uno de los
+tres espacios de curvatura constante de forma que 
+
+$ dd(s)^2 = hat(g)_(i j) dd(x)^i dd(x)^j = R^2 (dd(r)^2/(1-k r^2) + r^2 dd(Omega)) $
+
+Donde $R$ es un parámetro que controla el módulo de la curvatura y $k in {-1, 0, 1}$ 
+y selecciona el signo de la curvatura. Absorbiendo $R^2$ en el término de $a^2$ 
+queda demostrada la ecuación @ec-cosm:métrica-FLRW
+#align(right)[$qed$]
