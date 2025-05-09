@@ -5,3 +5,5 @@
 #include "variedades-diferenciables/variedades-diferenciables.typ"
 #include "cosmologia/cosmologia.typ"
 #include "optica/optica.typ"
+#include "relatividad/schwarzschild.typ"
+#include "relatividad/kerr.typ"
