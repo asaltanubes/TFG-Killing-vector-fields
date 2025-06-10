@@ -151,8 +151,7 @@ correspondence on both spaces.  When given a coordinate system the space
 of derivations has a basis defined by
 $ partial_mu (p)= pdv(, x^mu)(p) $
 
-Note that for these to be derivations at $p$ evaluation at $p$ is required by 
-@ec:def-derivations.
+Where $(p)$ denotes evaluation of the partial derivative at $p$
 
 With any of the two definitions the vector space of all vectors at a point $p$ of
 a manifold $M$ is denoted $T_p M$. 
@@ -163,10 +162,13 @@ $ X: M &--> T M \ p &--> X(p) in T_p M $
 
 When given a coordinate system a vector field may be written as 
 
-$ X(p) = X^mu (p) partial_mu $<ec:vector-component-def>
+$ X(p) = X^mu (p) pdv(, x^mu)  (p) $<ec:vector-component-def>
 
 So a *smooth vector field* is defined as a vector field whose component functions,
 $X^mu$, are smooth. The set of all smooth vector fields is denoted as $svecfield(M)$
+
+For some proofs the notation $X(p, f) = X(f)(p) = X^mu (p) pdv(f, x^mu)(p)$ will 
+be usefull
 
 
 === Covectors
@@ -187,9 +189,14 @@ where $delta^mu_nu$ is the chroneker delta.
 A covector will be smooth if for a coordinate system the covector has components
 $omega_mu$ defined by
 
-$ omega = omega_mu dd(x^mu) $<ec:covector-component-def>
+$ omega = omega_mu (p) dd(x^mu) $<ec:covector-component-def>
 
 are $Cinf(M)$ functions
+
+Again the notation
+$ omega(p, X) = omega_mu (p) dd(x^mu)(X) (p) $
+
+will be usefull
 
 === Tensors
 
@@ -219,7 +226,7 @@ $ T: underbrace(V^* times ... times V^*, q "copies") times underbrace(V times ..
 In our case the corresponding vector spaces are the $T_p M$ and a tensor field 
 will be a map
 
-$ T: underbrace(T^* M times ... times T^* M, q "copies") times underbrace(T M times ... times T M, p "copies") --> RR   $
+$ T: underbrace(T^* M times ... times T^* M, q "copies") times underbrace(T M times ... times T M, p "copies") --> Cinf(M)   $
 
 The components of a tensor can be obtained by feeding it some vectors and 
 applying @ec:vector-component-def and @ec:covector-component-def
@@ -229,6 +236,10 @@ omega_mu X^nu ... T(dd(x^mu), ..., partial_nu, ...) =: omega_mu X^nu ... T^(mu .
 
 So a tensor field is called smooth if the component functions $T^(mu ...)_(nu ...)$
 are $Cinf(M)$
+
+Another notation that will be usefull is 
+
+$ T(p, omega, ..., X, ...) = omega_mu_1 (p) ... X^(nu_1) (p) ... T_(nu_1 ...)^(mu_1 ...) (p) $
 
 == Metrics
 
@@ -273,6 +284,273 @@ dd(tau) $
 
 where $gamma'$ is the tangent vector to $gamma$
 
-// = Transformations of manifolds
+= Transformations of manifolds
 
-// In order to study
+In order to study the symmetries of our spacetime one has to first understand how to make a transformation. 
+
+First will start by defining a smooth transformation between manifolds $M, N$ as 
+a function $F: M->N$ such that for any coordinate system of $M$, $phi$, that 
+contains $p$, and any coordinate system of $N$, $phi'$, that contains $F(p)$, 
+the function $phi' compose F compose phi^(-1)$ is smooth.
+
+A *diffeomorphism* is a smooth map that is also biyective and with a smooth inverse.
+Any pair of manifolds that have a diffeomorphism relating them will be called 
+diffeomorphic manifolds.
+
+Diffeomorphic manifolds are equivalent in the sense that any field, may it be 
+scalar, vectorial or tensorial defined on one of the manifolds.
+Has an equivalent definition on the other. The operations that map a field on one
+of the manifolds to the other are called pullback and pushforward.
+
+== Pullback and pushforward of scalar fields
+Given a function $F: M->N$. A pullback will map fields defined on $N$ to fields
+defined on $M$. The simplest case is for scalar fields. The pullback of a scalar
+field $f in Cinf(N)$ is defined as
+
+$ pb(F) f = f compose F $
+
+so that $F$ maps points of $M$ to $N$ and then $f$ maps it to $RR$ so the 
+complete map is $M->RR$.
+
+The pushforward is the oposite transformation to the pullback, mapping fields from
+$M$ to $N$. In the case of diffeomorphisms it can be defined as the pullback by the
+inverse function. So if one has a function $f in Cinf(M)$ the pushforward by $F$
+is defined as 
+
+$ pf(F)f = pb((F^(-1)))f = f compose F^(-1) $
+
+The motivation behind this definition is that, if one pushes forward a function and 
+then pulls it back, it would be reasonable for the function to remain unchanged
+therefore $pb(F)pf(F)f = f$
+
+It is easy to see that the pullback and pushforward are linear since composition 
+is linear so that 
+
+
+$ pf(F)(alpha f+ beta g) = alpha pf(F) f + beta pf(F) g \ 
+  pb(F)(alpha f+ beta g) = alpha pb(F) f + beta pb(F) g  $
+
+Under this definitions diffeomorphisms may be thought rather than as mappings 
+between manifolds, as coordinate changes, since for any coordinate system on $N$,
+$x'^mu$, it can be thought of as a coordinate system on $M$ defined as 
+$x^mu = pb(F) x'^mu$. This will come up later in the chapter in the notion of 
+passive vs active transformations. 
+
+
+== Pullback and pushforward of vector fields
+
+Since a vector field was defined as a collection of derivations, it may be 
+thought of as a  function $X: Cinf(M) -> Cinf(M)$, that maps a function to the 
+directional derivative of the function at that point.
+
+The pushforward of vector fields may be thought of as first pulling back the vector
+field the corresponding function then
+pushing forward the result, for clarity $X(p, f)$ denotes evaluating $X(f)$ at $p$,
+$p in M$, $hat(P) in N$ $g in Cinf(N)$
+
+$ (pf(F) X)(g) = X(F^(-1)(hat(p)), pb(F) g) $
+
+The pullback is defined as the pushforward by the inverse function
+
+$ pb(F) X = pf((F^(-1))) X $
+
+
+Again pushforward and pullback of vector fields is linear 
+
+$ pf(F) (alpha X+beta Y)(f) &= (alpha X+ beta Y)(f compose F) = 
+ alpha X(f compose F) + beta Y(f compose F) \
+ &= alpha pf(F)(X)(f) + beta pf(F)(Y)(f) $
+
+Also by defining multiplication of vector fields and scalar fields $f X$ as 
+
+$ (f X)(p, g) = f(p) X(p, g) $
+
+the pushforward of this composition is linear in the following sense
+
+$ pf(F)(f X)(hat(p), g) &= (f, X)(F^(-1)(hat(p)), pb(F)g) = f(F^(-1)(hat(p))) 
+X(F^(-1)(hat(p)), pb(F) g) 
+\ &= (pf(F)f)(hat(p)) dot (pf(F)X)(hat(p), g) $
+
+where $dot$ denotes the product of real numbers
+
+equivalently for the pullback
+
+$ pb(F)(f X) = (pb(F)f) (pb(F) X) $
+
+This equations are coordinate independent, however for computations it is easier 
+to obtain the transformations by coordinate systems, in order to obtain the 
+coordinate transformation we will write the coordinate system of $M$ as $x^mu$ and
+the coordinate system of $N$ obtained as the pushforward of $x^mu$, $x'^mu$ 
+
+Now our vector field $X in svecfield(M)$ can be written
+
+$ X = X^mu (x^mu) pdv(, x^mu) $
+
+by defining a vector field on $N$, $X'$ as the pushforward of $X$
+
+$ X' = pf(F)X = X'(x'^mu) pdv(, x'^mu) $<ec:def-pf-of-vf-coordinates-proof>
+
+Since $x'^mu = F(x^mu)$ for a function in $f in Cinf(N)$ and defining $p in M$, 
+$hat(p) in N$ so that $hat(p) = F(p)$
+
+$ pf(F) X(hat(p), f) &= pf(F)(X^mu pdv(, x^mu))(hat(p), f) = X^mu (F^(-1)(hat(p)))
+pdv(f compose F, x^mu)(F^(-1)(hat(p))) 
+\ &= X^mu (p) pdv(f compose F, x^mu)(p) = X^mu (p) pdv(f, x'^nu)(hat(p)) 
+pdv(x'^nu, x^mu)(p) $<ec:proof-pf-of-vf-coordinates>
+
+Therefore by comparing the @ec:def-pf-of-vf-coordinates-proof and
+@ec:proof-pf-of-vf-coordinates the resulting transformation on a coordinate system
+is 
+$ X'^mu (hat(p)) = pdv(x'^mu, x^nu)(F^(-1)(hat(p))) X^nu (F^(-1)(hat(p)))  $
+
+This equation might seem purely mathematical but it explains the physical 
+transformations that we will find. These have a translation component, encoded 
+on the term of $X^nu (F^(-1)(hat(p)))$, that because of the $F^(-1)$ term shifts 
+the position of the $X^mu(p)$ vector. The other component are rotations, or 
+expansions, encoded on the $pdv(x'^mu, x^nu)(F^(-1)(hat(p)))$, this is because 
+this term mixes the components and allows for changing the direction of the vector
+or length of the vector.
+
+For the pullback the result is equivalent by changing $x'^mu-> x^mu$, $x^mu -> x'^mu$
+$hat(p) -> p$ and $F -> F^(-1)$
+
+so 
+
+$ X^mu (p) = pdv(x^mu, x'^nu)(F(p)) X'^nu (F(p)) $
+
+== Pullback and pushforward of covector fields
+
+Just as we did with vector fields, covector fields map vector fields to scalar fields
+the definitions and results are equivalent so for a covector $omega$
+
+$ pf(F) omega (hat(p), X) = omega(F^(-1)(hat(p)), pb(F) X)  $<ec:pushforward-of-covector>
+
+and for the pullback
+
+$ pb(F) omega(p, X) = omega(F(p), pf(F) X) $
+
+Again these are linear over addition of covectors and products by real numbers,
+and by defining the product of covectors by 
+
+$ (f omega)(p, X) = f(p) omega(p, X) $
+
+the pushforward is 'linear' over these in the sense that
+
+$ pf(F)(f omega)(hat(p), X) &= (f omega)(F^(-1)(hat(p)), pb(F)X) 
+= f(F^(-1)(hat(p))) omega(F^(-1)(hat(p)), pb(F) X) 
+\ &= (pf(F)f)(hat(p)) (pf(F) omega)(hat(p), X) $
+
+and equivalently for the pullback
+
+$ pb(F)(f omega) = (pb(F) f) (pb(F) omega) $
+
+When given a coordinate system for $M$ and $N$, $x^mu$ and $x'^mu$ respectively,
+then the covector on $M$ may be written as
+
+$ omega = omega_mu (p) dd(x^mu) $
+
+and the pushforward
+
+$ omega' = pf(F) omega =  omega_mu (hat(p)) dd(x'^mu) $
+<ec:covector-transformed-basis-expansion-proof-transformation>
+
+so by applying the definition of pushforward of a covector field, 
+@ec:pushforward-of-covector, one finds by setting $X' in svecfield(N)$
+
+$ pf(F) omega (hat(p), X') &= pf(F) (omega_mu  dd(x^mu)) (hat(p), X') = 
+pf(F)(omega_mu)(hat(p)) pf(F)(dd(x^mu))(hat(p), X') 
+= omega_mu (p) dd(x^mu)(p, pb(F)X') 
+\ &= omega_mu (p) dd(x^mu) (p, X'^nu (hat(p)) pdv(x^alpha, x'^nu) pdv(, x^alpha))
+=  omega_mu (p)  X'^nu (hat(p)) pdv(x^alpha, x'^nu)  
+                     underbrace(dd(x^mu) (p, pdv(, x^alpha)), delta^mu_alpha) 
+\ &= omega_mu (p) X'^nu (hat(p)) pdv(x^alpha, x'^nu)(hat(p)) delta^mu_alpha 
+=  pdv(x^mu, x'^nu)(hat(p)) omega_mu (p) X'^nu (hat(p)) $<ec:computation-transformation-rule-for-covectors>
+
+now, by feeding the same input to the @ec:covector-transformed-basis-expansion-proof-transformation one obtains
+
+$ omega'(hat(p), X') &= omega'_mu (hat(p)) dd(x'^mu)(X') = omega'_mu (hat(p))
+X'^nu (hat(p)) dd(x'^mu)(pdv(, x'^nu))  
+\ &= omega'_mu (hat(p)) X'^nu (hat(p)) delta^mu_nu = omega'_mu (hat(p)) X'^nu (hat(p)) $<ec:proof-covector-transformation-feed-to-pushforward>
+
+by comparing 
+@ec:computation-transformation-rule-for-covectors
+and
+@ec:proof-covector-transformation-feed-to-pushforward 
+
+one obtains
+
+$ omega'_mu (hat(p)) = pdv(x^nu, x'^mu) (hat(p)) omega_nu (F^(-1)(hat(p))) $
+
+The equivalent reasoning for the pullback gives
+
+$ omega_mu (p) = pdv(x'^nu, x^mu) (p) omega'_nu (F(p)) $
+
+Again here one can identify a translation and a rotation or expansion term, 
+however here the rotation is inverted.
+
+== Tensor pullbacks and pushforwards
+
+The pushforward of a tensor field, just as we did before with vectors and covectors
+is defined by pulling back the vector and covector fields and then pushing 
+forward the results
+
+$ pf(F)T(p, omega, ..., X, ...) = T(F^(-1)(p), pb(F)omega, ..., pb(F)X, ...)  $
+
+and equivalently for the pullback
+
+$ pb(F)T(p, omega, ..., X, ...) = T(F(p), pf(F) omega, ..., pf(F) X, ...) $
+
+Just as proven with the method in the 
+@ec:computation-transformation-rule-for-covectors it can be proben that 
+if $T$ is a tensor in $M$ and $T'$ is the pushforward on $N$, and by 
+choosing a coordinate system $x^mu$ on $M$ and the pushforward of this coordinate
+system to $N$, $x'^mu$, one obtains the relationship between the coordinate 
+systems of both as
+
+$ T'_(mu_1 ...)^(nu_1 ...)(hat(p)) = 
+pdv(x'^(nu_1), x^(alpha_1))(F^(-1)(hat(p))) ... pdv(x^(beta_1), x'^(mu_1))(hat(p)) 
+T^(alpha_1 ...)_(beta_1 ...) (F^(-1)(hat(p))) $
+
+== Isometries
+
+An isometry, is a diffeomorphism between Riemannian or pseudo-Riemannian manifolds,
+$F: M -> N$, where $g_M$ is the metric on $M$ and $g_N$ is the metric on $N$ then
+$F$ is an isometry if 
+$ g_N = pf(F) g_M  $
+
+thus preserving the metric.
+
+Any object that only depends on the metric is called *intrinsic* and is preserved
+under isometries in the same sense that the metric is preserved. 
+
+A few examples are:
+- The Levi-Civita connection ($cdv(, mu)$)
+- The Riemann tensor ($tensor(R, mu, -nu gamma sigma)$)
+- The length of a curve ($integral_gamma sqrt(g_(mu nu) gamma'^mu gamma'^nu) dd(tau)$)
+
+= Flows 
+
+A flow, intuitivelly, is descrived as the movement of a liquid or a gas that at 
+each point moves in one particular direction.
+
+Mathematically this can be described by a velocity field, that describes the 
+movement of the fluid. 
+
+This might not seem relevant to the study of transformations in general relativity, 
+however this concept is the definition we will use to build all of the 
+transformations.
+
+First we will start by defining a flow as a curve that solves the following 
+differential equation 
+
+$ cases(pdv(phi.alt, tau)(tau, x_0) = V(phi.alt(tau, x_0)), phi.alt(0, x_0) = x_0)  $
+
+where $V$ is the velocity field and $phi.alt$ is a curve on the manifold. There are
+a few interesting properties of flows that will be important later.
+
+First of all, since $V$ is a smooth vector field, the solutions to 
+$phi.alt(tau, x_0)$ are unique, this also means that for any fixed $tau$ the 
+transformation
+$phi.alt_tau: M -> M$ defined as $phi.alt_tau (p) = phi.alt(tau, p)$ is a 
+diffeomorphism since the solutions are unique and since the function is 
+differentiable with respect to $tau$ it has to be smooth.

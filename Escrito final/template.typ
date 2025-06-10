@@ -86,6 +86,8 @@ TODOS:
     line(length: 100%, stroke: 3pt + heading-color-75)
     v(1.2cm)
   }
+
+  show math.equation: it => box(it)
   
   align(center)[
     #set page(numbering: none)
