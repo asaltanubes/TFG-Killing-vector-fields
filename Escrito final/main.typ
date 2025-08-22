@@ -6,5 +6,10 @@
   studied a general relativity course.
 ])
 
-#include "Introduction/Introduction.typ"
-#include "Manifolds/manifolds.typ"
+// #include "Introduction/Introduction.typ"
+// #include "Manifolds/manifolds.typ"
+// #include "schwarzschild/schwarzschild.typ"
+// #include "kerr/kerr.typ"
+// #include "cosmology/cosmology.typ"
+#include "redshifts/redshifts.typ"
+

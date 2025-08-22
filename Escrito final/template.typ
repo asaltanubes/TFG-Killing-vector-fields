@@ -38,7 +38,7 @@ TODOS:
 ) = {
   set document(author: authors, title: title)
   set page(margin: 25mm, numbering: "I", header: header())
-  set text(font: "CMU Concrete", lang: "es")
+  // set text(font: "CMU Concrete", lang: "es")
   set par(justify: true)
   set ref(supplement: it => {
     it.supplement.text.slice(0, 3).replace("u", "") + "."
@@ -55,7 +55,7 @@ TODOS:
   
   
   show math.equation: set text(weight: 400)
-  show math.equation: it => show-math(it)
+  // show math.equation: it => show-math(it)
   
   show figure.where(kind: table): set figure.caption(position: top)
   

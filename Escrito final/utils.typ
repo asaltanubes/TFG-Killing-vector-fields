@@ -82,4 +82,6 @@
     text(style: "italic", heading-one.body)
     )
     move(dy: -9pt, line(length: 100%))
+
+    counter(footnote).update(0)
   } 
