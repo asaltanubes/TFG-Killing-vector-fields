@@ -11,5 +11,9 @@
 // #include "schwarzschild/schwarzschild.typ"
 // #include "kerr/kerr.typ"
 // #include "cosmology/cosmology.typ"
-#include "redshifts/redshifts.typ"
+// #include "redshifts/redshifts.typ"
+// #include "optics/optics.typ"
 
+#include "brown/quantum-cosmology-and-inflation.typ"
+
+#bibliography(("brown/bibliography.bib",))

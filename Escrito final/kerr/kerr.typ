@@ -104,7 +104,7 @@ into the ergosphere has to rotate with the black hole.
 If we wanted to obtain the equations of motion like how we did in the Schwarzschild
 metric we would find a problem. In the Schwarzschild metric we  had 3 Killing
 fields that, when combined with the norm of the four velocity allowed to solve
-for the derivatives. Here we only have two Killing fields. Fortunatelly there is
+for the derivatives. Here we only have two Killing fields. Fortunately there is
 an additional Killing rank 2 tensor $sigma$ defined as
 
 $ sigma_(mu nu) = Sigma^2 (l_mu n_nu + l_nu n_mu) + r^2 g_(mu nu)
