@@ -401,7 +401,7 @@ pdv(x'^nu, x^mu)(p) $<ec:proof-pf-of-vf-coordinates>
 Therefore by comparing the @ec:def-pf-of-vf-coordinates-proof and
 @ec:proof-pf-of-vf-coordinates the resulting transformation on a coordinate system
 is 
-$ X'^mu (hat(p)) = pdv(x'^mu, x^nu)(F^(-1)(hat(p))) X^nu (F^(-1)(hat(p)))  $<
+$ X'^mu (hat(p)) = pdv(x'^mu, x^nu)(F^(-1)(hat(p))) X^nu (F^(-1)(hat(p)))  $
 
 This equation might seem purely mathematical but it explains the physical 
 transformations that we will find. These have a translation component, encoded 
