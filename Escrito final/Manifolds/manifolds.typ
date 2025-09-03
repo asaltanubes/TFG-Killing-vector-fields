@@ -3,6 +3,8 @@
 
 = Formalism of general relativity
 
+This section is based on @smooth-manifolds-lee and @riemannian-manifolds-lee.
+
 In order to understand symmetry and motivate the definition of Killing fields first
 it is required to understand is, in the mathematical sense, spacetime and
 define flows and Lie derivatives.
@@ -286,6 +288,9 @@ where $gamma'$ is the tangent vector to $gamma$
 
 = Transformations of manifolds
 
+This section is based on @smooth-manifolds-lee, @riemannian-manifolds-lee and 
+@carroll2003spacetime.
+
 In order to study the symmetries of our spacetime one has to first understand how to make a transformation. 
 
 First will start by defining a smooth transformation between manifolds $M, N$ as 
@@ -530,6 +535,8 @@ A few examples are:
 
 = Flows 
 
+This section is based on @smooth-manifolds-lee.
+
 A flow, intuitively, is described as the movement of a liquid or a gas that at 
 each point moves in one particular direction.
 
@@ -572,6 +579,8 @@ therefore the equality is true. As a lemma we have that the inverse diffeomorphi
 $phi.alt^(-1)_tau (p)$ is equivalent to $phi.alt_(-tau) (p)$
 
 = Lie derivatives
+
+This section is based on @smooth-manifolds-lee and @carroll2003spacetime.
 
 Finally after all of the mathematical conundrum we are finally ready to define 
 the Lie derivative. The Lie derivative is an object that takes in a vector field
@@ -641,14 +650,14 @@ equation is @ec:pb-comp-vec-field
 
 $ (lie(X, Y))^mu &= eval(dv(, tau) pb(phi.alt_tau) Y)_(tau = 0) 
                   = eval(dv(, tau) (pdv(x^mu, x'^nu) Y^nu (x')))_(tau=0) 
-               \ &= eval(dv(, tau) (pdv(x^mu, x'^nu)) Y^nu (x'))_(tau=0) 
-                  + eval(pdv(x^mu, x'^nu) dv(, tau) Y^nu(x'))_(tau=0)
-               \ &= eval((- pdv(X^mu, x'^nu) + Order(tau)) Y^nu (x'))_(tau=0) 
-                  + eval((delta^mu_nu + Order(tau)) dv(, tau) Y^nu (x'))_(tau=0)
-               \ &= - Y^nu (x) pdv(X^mu, x^nu) + eval((delta^mu_nu  + Order(tau)) 
-               dv(x'^alpha, tau) pdv(x^beta, x'^alpha) pdv(Y^nu, x^beta))_(tau=0)
-               \ &= -Y^nu (x) pdv(X^mu, x^nu) + eval((delta^mu_nu + Order(tau)) 
-               X^alpha pdv(x^beta, x'^alpha) pdv(Y^nu, x^beta))_(tau=0)
+               \ &= [dv(, tau) (pdv(x^mu, x'^nu)) Y^nu (x')
+                  + pdv(x^mu, x'^nu) dv(, tau) Y^nu(x')]_(tau=0)
+               \ &= [(- pdv(X^mu, x'^nu) + Order(tau)) Y^nu (x') 
+                  + (delta^mu_nu + Order(tau)) dv(, tau) Y^nu (x')]_(tau=0)
+               \ &= - Y^nu (x) pdv(X^mu, x^nu) + [(delta^mu_nu  + Order(tau)) 
+               dv(x'^alpha, tau) pdv(x^beta, x'^alpha) pdv(Y^nu, x^beta)]_(tau=0)
+               \ &= -Y^nu (x) pdv(X^mu, x^nu) + [(delta^mu_nu + Order(tau)) 
+               X^alpha pdv(x^beta, x'^alpha) pdv(Y^nu, x^beta)]_(tau=0)
                \ &= -Y^nu (x) pdv(X^mu, x^nu) +  
                X^alpha pdv(Y^mu, x^alpha)
                $
@@ -682,6 +691,10 @@ $ (lie(X, T)) (A, B, ...) = lie(X, (T(A, B, ...))) + T(lie(X, A), B, ...) +
                             T(A, lie(X, B), ...) + ... $
 
 = Killing fields
+
+This section in based on @carroll2003spacetime,
+@katanaev-killing-fields-homogeneous-and-isotropic and @redshifts-and-killing-vectors.
+
 Finally we can write the definition of Killing fields. A Killing field, $K$, is a 
 vector field such that the flow it generates is an isometry. In physical terms, 
 moving along the 'velocity field' $K$ doesn't change the metric tensor 

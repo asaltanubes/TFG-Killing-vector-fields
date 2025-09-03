@@ -2,6 +2,8 @@
 
 = Computation of redshifts
 
+This section is based on @redshifts-and-killing-vectors.
+
 The redshift is the quantity that relates the frequency of a light wave when it 
 was emitted at a point $A$ and when it is measured at a point $B$. The redshift,
 denoted $z$ is usually defined as

@@ -2,6 +2,8 @@
 
 = Kerr black holes
 
+This section is based on @carroll2003spacetime and @gravitation.
+
 The Kerr metric represents a spinning black hole. From this one can already think
 that spherical symmetry and time reversal symmetry are going to be broken. The 
 first one because there will be an "special axis" around which the black hole 

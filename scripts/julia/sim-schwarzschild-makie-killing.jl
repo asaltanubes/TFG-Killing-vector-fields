@@ -5,7 +5,7 @@ using DifferentialEquations: ODEProblem, solve, DP5, Tsit5
 using Interpolations: LinearInterpolation
 using ProgressMeter: Progress, next!
 
-β = 0.3
+β = 0.6
 const rₛ = 1
 
 g(xx) = [-(1-rₛ/xx[2]), + 1/(1-rₛ/xx[2]), +xx[2]^2]
@@ -95,14 +95,15 @@ function sim_particle(x₀, v₀, t_span = (BigFloat(0.), BigFloat(100.)), N = 5
 end
 
 x0 = [BigFloat(0.), BigFloat(1.6), BigFloat(2.)]
-v0 = cartesian_to_polar(x0)*[BigFloat(0.), BigFloat(-.2), BigFloat(0.)]
-# v0 = cartesian_to_polar(x0)*[BigFloat(0.), BigFloat(0.), BigFloat(0.)]
+v0 = cartesian_to_polar(x0)*[BigFloat(0.), BigFloat(-1.), BigFloat(0.)]
+# v0 = cartesian_to_polar(x0)*[BigFloat(0.), BigFloat(-0.2), BigFloat(0.)]
 g₀ = g(x0)
 v0[1] = sqrt((-1-g₀[2]*v0[2]^2 - g₀[3] * v0[3]^2)/g₀[1])
 x0 = cartesian_to_polar_coord(x0)
 println("norm v0 ->", v0'*diagm(g₀)*v0)
 
-rr = sim_particle(x0, v0, (BigFloat(0.), BigFloat(10.)))
+rr = sim_particle(x0, v0, (BigFloat(0.), BigFloat(8.)))
+# rr = sim_particle(x0, v0, (BigFloat(0.), BigFloat(10.)))
 
 fig, ax, _ = lines(rr[:, 2], rr[:, 3])
 
@@ -118,20 +119,21 @@ nframes = framerate*5
 bar = Progress(nframes)
 
 timerange = range(rrh[1, 1], rrh[end, 1], nframes)
-fig = Figure()
+println("figure")
+fig = Figure(size = (1920, 1080))
 ax = Axis(fig[1, 1], autolimitaspect=1, limits = ((x(timerange[1])-rₛ, x(timerange[end])+ rₛ), nothing))
 
 t = Observable(rrh[1, 1])
 
-lines!(ax, @lift(cos.(0:0.01:2π).*invγ .+ β .* $t), sin.(0:0.01:2π) )
+lines!(ax, @lift(cos.(0:0.01:2π).*invγ .+ β .* $t), sin.(0:0.01:2π), linewidth=2, color = RGBf.(0, 0, 0))
 xx = x.(timerange)
 yy = y.(timerange)
 index = Observable(1)
-lines!(ax, @lift(xx[1:$index]), @lift(yy[1:$index]))
-scatter!(ax, @lift(x($t)), @lift(y($t)))
+lines!(ax, @lift(xx[1:$index]), @lift(yy[1:$index]), linewidth=2, color=:orange)
+scatter!(ax, @lift(x($t)), @lift(y($t)), markersize=15)
 
 
-record(fig, "schwarzschild-anim.mp4", 1:nframes;
+record(fig, "schwarzschild-anim6.mp4", 1:nframes;
         framerate = framerate) do i
     nowt = timerange[i]
     index[]=i

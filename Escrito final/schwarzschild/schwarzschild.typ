@@ -2,6 +2,8 @@
 
 = Schwarzschild geodesics
 
+This section is based on @carroll2003spacetime and @gravitation.
+
 The Schwarzschild metric is one of the most important metrics in general relativity.
 By Birkhoff's theorem  it is known to be the unique spherically symmetric
 vacuum solution to Einstein field equations. This means that any spherically 
@@ -105,7 +107,7 @@ to the line connecting the black hole and the particle. One might think that the
 effects could be explained using a retarded gravitational potential, however 
 for a retarded potential particles tend to fall behind the atracting object and 
 follow it instead of being dragged with it or even being pushed. Some animations 
-can be fond in the following link.
+can be fond in the following #link("https://youtube.com/playlist?list=PLcY33dkO47jKidKZUIceZbS97LIOyDPFR&si=n9-VENUWXR6OF5nU")[link].
 // An interesting place to study that is not commonly treated is the moving black hole.
 // This is because one can always Lorentz boost to the frame that sees the black hole
 // as stationary and work in that reference frame. However there is some interesting

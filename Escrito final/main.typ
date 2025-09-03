@@ -23,4 +23,4 @@
 
 #include "brown/quantum-cosmology-and-inflation.typ"
 
-#bibliography(("brown/bibliography.bib",))
+#bibliography(("bibliography.bib", "brown/bibliography.bib"))

@@ -6,6 +6,9 @@ As part of the agreement of the University of Cantabria and University of Brown
 this project was developed the summer of 2025. 
 
 == Theory
+
+Introduction to the Ashtekar variables adapted from @ashtekar-variables-intro.
+
 Inflation is a proposed mechanism where at the big bang there was a big expansion
 before the observed big bang explaining the observed flatness and isotropy of the
 universe. Multiple mechanisms for inflation have been proposed, and usually involve
@@ -616,7 +619,7 @@ The norm and expected values can be found in @fig-brown:norm-phi and @fig-brown:
 
 As we can see the norm of the wavefunction is not a constant. This can be traced
 to the chosen Hamiltonian, since the Hamiltonian is not Hermitian, the time evolution
-operator
+operator @lancaster2014quantum
 
 $ U(Delta t) = exp(-i hat(H) Delta t slash hbar) $
 
@@ -624,7 +627,11 @@ is not unitary. Therefore the norm is not a conserved quantity.
 
 It is also interesting to note how @fig-brown:exp-val-E and 
 the fourth order potential solution in @fig-brown:classical-E. This can be understood
-in terms
+by remembering that $u=-1$ is an attractor when time runs backwards. Since the 
+wave packet defines the initial conditions at $T_0 = 0.3$ when evolved backwards
+the values of $u$ will be clumped close to $-1$, so that the evolution is similar 
+to a state with only one value of $u$ corresponding to the solution represented in 
+@fig-brown:classical-E.
 
 #figure(
   image("figures/normphi.svg"),
@@ -639,3 +646,13 @@ in terms
   using the distribution in @ec-brown:distribution. The number of steps in time 
   for integration was of $10000$ and in the initial conditions for $u$ was $100$.]
 )<fig-brown:exp-val-E>
+
+
+== Conclusions 
+
+As show here the classical model predicts inflation for slow rolling potentials 
+at the end of the inflationary epoch. Additionally the quantum model allows to define
+well defined wave packets and compute quantities in agreement with the expected values.
+
+Additional work could find a Hermitian Hamiltonian and the solutions would fix 
+the non-constant norm problem of the solutions.

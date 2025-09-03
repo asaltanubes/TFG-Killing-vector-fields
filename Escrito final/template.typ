@@ -46,6 +46,7 @@ TODOS:
   set math.cancel(stroke: 1pt+red)
   
   set heading(numbering: "1.")
+  show link: it => text(fill:blue, underline(it))
   
   // Esto es para conseguir numbering indexado en cada capitulo
   let custom-numbering(style, num) = numbering(style, counter(heading).get().first(), num.pos().first())

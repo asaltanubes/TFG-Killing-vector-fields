@@ -2,6 +2,9 @@
 
 = FLRW Metric
 
+This section is based on @katanaev-killing-fields-homogeneous-and-isotropic and
+@riemannian-manifolds-lee.
+
 In cosmology the most widely used metric to describe spacetime at big scales 
 is is the FLRW (Friedmann Lemaitre Robertson Walker) metric. Even in contexts where general relativity is modified this
 is the case, this is because the principles that lead towards this metric are, 
@@ -32,7 +35,7 @@ prove the form of the metric is outlined here.
 + First prove that the metric is separable, meaning $dd(s)^2 = -dd(t)^2 + g_(i j) 
 dd(x)^i dd(x)^j$ and then prove that $dd(s)^2 = -dd(t)^2 + a^2(t) h_(i j)$ where $h$ is independent of time
 + After this prove that since $t = cte$ are maximally submanifolds $g_(i j)$ is a constant sectional curvature space
-+ By applying the Killing-Hopf theorem the spatial submanifolds have to be isometric to a 4-sphere, 4-hyperboloid or a flat space.
++ By applying the Killing-Hopf theorem @riemannian-manifolds-lee the spatial submanifolds have to be isometric to a 4-sphere, 4-hyperboloid or a flat space.
 
 == Separability of the metric
 
@@ -332,7 +335,7 @@ therefore the sectional curvature is constant.
 
 == Geodesics on the FLRW metric
 
-The Killing fields on this space are defined by
+The Killing fields on this space @killing-fields-FLRW are defined by
 6 parameters $delta a_x, delta a_y, delta a_z, 
 delta b_x, delta b_y$ and $delta b_z$ 
 and their components are
@@ -394,8 +397,8 @@ to the z axis is constant, not allowing $r$ to be a valid variable.
 
 By also using the condition of the normalization of $u$ we can obtain following differential equation
 
-$ dv(r, t) = u^r/u^t = u^r/sqrt(1- (a^2(t))/sqrt(1- k r^2) (u^r)^2 ) 
-= (P a^(-2))/sqrt(1- P^2 (a^(-2)(t))/sqrt(1- k r^2)) = P/sqrt(a^4 (t) - (P^2 a^2(t))/sqrt(1 - k r^2)) $
+$ dv(r, t) = u^r/u^t = u^r/sqrt(1+ (a^2(t))/sqrt(1- k r^2) (u^r)^2 ) 
+= (P a^(-2))/sqrt(1+ P^2 (a^(-2)(t))/sqrt(1- k r^2)) = P/sqrt(a^4 (t) + (P^2 a^2(t))/sqrt(1 - k r^2)) $
 
 as we can see as the universe increases in size matter slows down since as $a$ 
 increases $dv(r, t)$ decreases.

@@ -11,7 +11,7 @@ conservation laws, thus explaining the origin of conservation of energy, charge 
 all other conservation laws widely used in physics. 
 
 As an example, in classical mechanics, the action is defined as the integral of the
-Lagrangian
+Lagrangian @lagrangian-ref
 
 $ S[q^i (t)] =  integral dd(t) L(t, q^i, dot(q)^i) $
 

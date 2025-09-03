@@ -2,6 +2,9 @@
 
 = Optics
 
+A similar metric than the one proposed by Walter Gordon in 1923 is used here
+@Gordon:1923qva.
+
 Classical geometrical optics treat light as rays that move at a certain speed and
 bend by Snell law. General relativity treats light rays in a similar way but uses
 geodesics to shape their path. Treating geometrical optics as an effective theory
