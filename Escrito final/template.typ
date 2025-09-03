@@ -58,8 +58,9 @@ TODOS:
   // show math.equation: it => show-math(it)
   
   show figure.where(kind: table): set figure.caption(position: top)
+  set image(width: 75%)
   
-  show figure.caption: it => if it.separator.text == "" {it} else {align(left)[#it]}
+  show figure.caption: it => if it.separator.text == "" {it} else {align(center)[#it]}
   show figure: it => {
     set figure.caption(separator: "") if it.caption != none and it.caption.body == []
     it

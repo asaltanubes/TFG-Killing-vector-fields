@@ -3,15 +3,15 @@
 = FLRW Metric
 
 In cosmology the most widely used metric to describe spacetime at big scales 
-is is the FLRW metric. Even in contexts where general relativity is modified this
+is is the FLRW (Friedmann Lemaitre Robertson Walker) metric. Even in contexts where general relativity is modified this
 is the case, this is because the principles that lead towards this metric are, 
 to some degree, independent of general relativity. 
 
 The fundamental principle behind this metric is the observed homogeneity and
 isotropy of the universe at big scales. In more formal terms this means that
 there have to be a family of spacelike surfaces that are isometric
-under translations in all spacial directions and rotations around any point. This
-is, there are a family of spacial slices that are maximally symmetric so that 
+under translations in all spatial directions and rotations around any point. This
+is, there are a family of spatial slices that are maximally symmetric so that 
 for any point in the manifold is part of one of the slices.
 
 The usual ways to write this metric are
@@ -32,7 +32,7 @@ prove the form of the metric is outlined here.
 + First prove that the metric is separable, meaning $dd(s)^2 = -dd(t)^2 + g_(i j) 
 dd(x)^i dd(x)^j$ and then prove that $dd(s)^2 = -dd(t)^2 + a^2(t) h_(i j)$ where $h$ is independent of time
 + After this prove that since $t = cte$ are maximally submanifolds $g_(i j)$ is a constant sectional curvature space
-+ By applying the Killing-Hopf theorem the spacial submanifolds have to be isometric to a 4-sphere, 4-hyperboloid or a flat space.
++ By applying the Killing-Hopf theorem the spatial submanifolds have to be isometric to a 4-sphere, 4-hyperboloid or a flat space.
 
 == Separability of the metric
 
@@ -76,10 +76,10 @@ tensor(Gamma, -i 0 0) = 0 $.
 
 
 Now that have a coordinate system that has the initial form we wanted.
-Next, it is important to check that in this coordinate system all spacial slices
+Next, it is important to check that in this coordinate system all spatial slices
 are maximally symmetric. Right now we have only assumed that the initial slice is
 maximally symmetric, however that doesn't tell us anything about the structure of
-all of the spacial slices. This is an interesting question because it could be the
+all of the spatial slices. This is an interesting question because it could be the
 case where some spaces start maximally symmetric but at some point they stop being
 symmetric. As we will see this is not the case.
 
@@ -99,7 +99,7 @@ $ 2 g_(0 0) partial_0 K^0 + cancel(K^0 partial_0 g_(0 0)) = 0 => partial_0 K^0 =
 This with the initial condition of $K^0(t = 0) = 0$ shows that the Killing fields
 are tangent to constant time slices. 
 
-Now we are close to proving that all spacial slices are maximally symmetric, since
+Now we are close to proving that all spatial slices are maximally symmetric, since
 the differential equation has unique solutions as long as the metric is enough
 well behaved this looks like is enough to prove that the slices have the same 
 number of Killing fields as the initial one, so they are maximally symmetric too.
@@ -111,13 +111,13 @@ $ cancel(K^alpha partial_alpha g_(0 i)) + cancel(g_(0 alpha) partial_i K^alpha)
 + g_(alpha i) partial_0 K^alpha = g_(j i) partial_0 K^j = 0 => partial_0 K^j = 0 $
 
 The equality between the first and second expression might not be completely clear
-unless one remembers that the spacial part of the metric is positive definite so
+unless one remembers that the spatial part of the metric is positive definite so
 that in matrix it is a non-singular matrix. 
 
-Just as before this implies that the spacial parts of the Killing vectors are 
+Just as before this implies that the spatial parts of the Killing vectors are 
 constant in time. Therefore all slices are maximally symmetric.
 
-To show that the spacial part has the form of $g_(i j) = a^2(T) h_(i j)$ where
+To show that the spatial part has the form of $g_(i j) = a^2(T) h_(i j)$ where
 $h_(i, j)$ is independent of time.
 
 The path
@@ -213,9 +213,9 @@ tensor so that it takes in two vectors and plugs them into
 that any pair of manifolds with constant sectional curvature are isometric if their
 sectional curvatures are equal. So by proving that maximally symmetric spaces have
 a Riemann tensor of the form @eq-cosm:constant-sectional-curvature-and-riemann-tensor
-with constant $K$ will give us the metric on the spacial slices.
+with constant $K$ will give us the metric on the spatial slices.
 
-== Riemann tensor on maximally symmetric tensor
+== Riemann tensor on maximally symmetric spaces
 
 To obtain the form of the Riemann tensor we start from the fact that the Riemann 
 tensor is intrinsic, therefore, the Lie derivative of the Riemann tensor with 
@@ -329,3 +329,73 @@ Lie derivative with respect to a translation
 $ lie(K, R) = K^alpha partial_alpha R = 0 $
 
 therefore the sectional curvature is constant.
+
+== Geodesics on the FLRW metric
+
+The Killing fields on this space are defined by
+6 parameters $delta a_x, delta a_y, delta a_z, 
+delta b_x, delta b_y$ and $delta b_z$ 
+and their components are
+
+$ 
+xi^t &= 0\
+
+xi^r &= sqrt(1-k r^2) (sin theta (cos phi.alt delta a_x + sin phi.alt delta a_y) + cos theta delta a_z)\
+
+xi^theta &= sqrt(1-k r^2)/r [cos theta (cos phi.alt delta a_x + sin phi.alt delta a_y) - sin theta delta a_z] + (sin phi.alt delta b_x - cos phi.alt delta b_y)\
+
+xi^phi.alt &= sqrt(1- k r^2)/r [1/sin(theta) (cos phi.alt delta a_y - sin phi.alt delta a_x)] +
+cot theta (cos phi.alt delta b_x + sin phi.alt delta b_y) - delta b_z
+$
+
+Since the spatial slices are maximally symmetric we can work without the loose of 
+generality in a coordinate system where the initial position is in the ray
+defined by $theta = pi/2$ and $phi.alt = 0$ and the four-velocity has only a time 
+and radial component. 
+
+By choosing the Killing field generated by $delta arrow(a) = 0$ and $delta b_x = delta b_z = 0$ 
+and $delta b_y = 1$, that we will denote $K$ the components of the Killing field are
+$ K = -cos(phi.alt) partial_theta  $
+
+therefore the conserved quantity
+
+$ K_mu u^mu = - a^2(t) r sqrt(1 - k r^2) cos phi.alt u^theta = 0 $
+
+enforces $u^theta = 0$ for all time as long as $phi.alt != pm pi/2$.
+
+Similarly by taking $delta arrow(a) = 0$ and $delta b_x = delta b_y = 0$ $delta b_z = -1 $
+and calling this Killing field $omega$ we find that
+
+$ omega = sqrt(1-k r^2)/r partial_phi.alt $
+
+giving as a conserved quantity
+
+$ omega_mu u^mu = a^2(t) r sqrt(1- k r^2) sin theta u^phi.alt = 0 $
+
+therefore once again $u^phi.alt = 0$ as long as $theta != n pi$  with $n in ZZ$.
+
+With these two conditions we can see that the $theta "and" phi.alt$ components 
+will be constants. This leaves us with the choice of $delta a_x = 1$, $delta a_y = delta a_z = delta arrow(b) = 0 $  giving the Killing field we will denote $Xi$ that can be written as
+
+$ Xi = sqrt(1-k r^2) partial_r $
+
+and the associated conserved quantity is
+
+$ P = Xi_mu u^mu = a^2 (t) u^r $<ec-cosm:conservation-of-ur>
+
+This, already gives an interesting result. By inspecting the metric it might seem
+like for $k = 1$ (spherical universes) the surface at $r = 1$ is some kind of event
+horizon and that $u^r -> 0$ preventing matter or light from crossing it. However
+as we see in @ec-cosm:conservation-of-ur this is not the case. The reason for this
+is that the $r$ coordinate chosen here would be the equivalent to the distance from
+some point on a sphere to the $z$ axis. And the region at $r = 1$ would be the 
+equator. The apparent singularity appears because close to the equator the distance
+to the z axis is constant, not allowing $r$ to be a valid variable.
+
+By also using the condition of the normalization of $u$ we can obtain following differential equation
+
+$ dv(r, t) = u^r/u^t = u^r/sqrt(1- (a^2(t))/sqrt(1- k r^2) (u^r)^2 ) 
+= (P a^(-2))/sqrt(1- P^2 (a^(-2)(t))/sqrt(1- k r^2)) = P/sqrt(a^4 (t) - (P^2 a^2(t))/sqrt(1 - k r^2)) $
+
+as we can see as the universe increases in size matter slows down since as $a$ 
+increases $dv(r, t)$ decreases.

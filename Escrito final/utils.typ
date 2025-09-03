@@ -60,7 +60,7 @@
     if headings-one.len() == 0 { return }
     let heading-one = headings-one.last()
 
-    grid(columns: 3, align: (left+top, center, left), 
+    grid(columns: 3, align: (left+top, center, right), 
     // If there is some level 2 heading, show it, otherwise only show chapter
     if headings-two-after.len() != 0 and headings-two-after.first().location().page() == here().page(){
      let heading-two-after = headings-two-after.first()
@@ -78,7 +78,7 @@
         heading-to-page-header(heading-two-before)
       }
     },
-    h(30pt),
+    h(3000pt),
     text(style: "italic", heading-one.body)
     )
     move(dy: -9pt, line(length: 100%))

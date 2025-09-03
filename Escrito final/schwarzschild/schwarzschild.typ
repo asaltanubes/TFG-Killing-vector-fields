@@ -35,7 +35,7 @@ The Killing vector associated to time translation is
 $ T =  partial_t$
 
 Since this metric is rotation invariant we are allowed to choose the coordinate
-system so that both the initial position and spacial part of the four-velocity
+system so that both the initial position and spatial part of the four-velocity
 lie on the $theta = pi/2$ plane. Reducing the complexity of the system.
 In this plane with the restriction $u^theta = 0$, this restriction is valid for 
 all time, this can be proved by looking at the conserved quantities of $X$ and $Y$ 
@@ -96,6 +96,16 @@ the Schwarzschild radius.
 This method allows us to obtain the equations of motion of the particles without 
 having to compute the Christoffel symbols.
 
+This result that things stop moving when touching the event horizon can be generalized
+to moving black holes by using a Lorentz transformation. The result is that 
+for the case where the black hole moves, matter and light tend to move with the 
+black hole, dragged by it. This has some interesting phenomenological effects where
+certain particles experience forces similar to being pushed away or forces tangential
+to the line connecting the black hole and the particle. One might think that these
+effects could be explained using a retarded gravitational potential, however 
+for a retarded potential particles tend to fall behind the atracting object and 
+follow it instead of being dragged with it or even being pushed. Some animations 
+can be fond in the following link.
 // An interesting place to study that is not commonly treated is the moving black hole.
 // This is because one can always Lorentz boost to the frame that sees the black hole
 // as stationary and work in that reference frame. However there is some interesting

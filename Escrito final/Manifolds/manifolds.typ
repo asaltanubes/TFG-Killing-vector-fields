@@ -32,8 +32,8 @@ closeness defined because of the metric but this idea has to be introduced later
 Any topology obeys the following 
 relations of closure
 
-$ emptyset, M in tau \ x_i in tau => Union_(i = 0)^oo x_i in tau \
-x_i in tau => Intersection_(i=0)^n x_i in tau $
+$ emptyset, M in tau \ U_i in tau => Union_(i = 0)^oo U_i in tau \
+U_i in tau => Intersection_(i=0)^n U_i in tau $
 
 This allows to define what a continuous function is, the idea of continuity is 
 that any two 'close' points in the input of the function will be 'close' in the 
@@ -145,7 +145,7 @@ Any curve can be assigned a derivation via the following definition
 
 $ D_gamma f = (f compose gamma)'(0) $<ec:derivation-via-curve>
 
-The equivalence of definitions may be proben by first proving both spaces have the
+The equivalence of definitions may be proven by first proving both spaces have the
 same dimension. After that @ec:derivation-via-curve gives a one to one 
 correspondence on both spaces.  When given a coordinate system the space
 of derivations has a basis defined by
@@ -245,7 +245,7 @@ $ T(p, omega, ..., X, ...) = omega_mu_1 (p) ... X^(nu_1) (p) ... T_(nu_1 ...)^(m
 
 The last piece for constructing a spacetime is adding a notion of magnitude to 
 our vectors and distance. This is constructed by adding a tensor field to the 
-spacetime Manifold which we will call the metic.
+spacetime Manifold which we will call the metric.
 
 The metric defines a dot product between vectors
 
@@ -279,7 +279,7 @@ path moves in the 'time direction', in the 'space direction' or like light. ]
  function between two points of the manifold by
 denoting $Gamma(p, q)$ the set of all curves starting at $p$ and ending at $q$
 
-$ d(p, q) = min_(gamma in Gamma(p, q)) integral_gamma (g(gamma'(tau), gamma'(tau))) 
+$ d(p, q) = min_(gamma in Gamma(p, q)) integral_gamma sqrt(g(gamma'(tau), gamma'(tau))) 
 dd(tau) $
 
 where $gamma'$ is the tangent vector to $gamma$
@@ -501,7 +501,7 @@ and equivalently for the pullback
 $ pb(F)T(p, omega, ..., X, ...) = T(F(p), pf(F) omega, ..., pf(F) X, ...) $
 
 Just as proven with the method in the 
-@ec:computation-transformation-rule-for-covectors it can be proben that 
+@ec:computation-transformation-rule-for-covectors it can be proven that 
 if $T$ is a tensor in $M$ and $T'$ is the pushforward on $N$, and by 
 choosing a coordinate system $x^mu$ on $M$ and the pushforward of this coordinate
 system to $N$, $x'^mu$, one obtains the relationship between the coordinate 
@@ -557,22 +557,19 @@ differentiable with respect to $tau$ it has to be smooth.
 
 Another property that flow has is that these are defined except by a constant 
 translation on the parameter $tau$. Meaning if $phi.alt(tau, x_0)$ is a flow of a 
-field $V$ then $phi.alt(tau + s)$ is also a flow of the field $V$. 
+field $V$ then $phi.alt(tau + s, x_0)$ is also a flow of the field $V$. 
 Unless stated otherwise the convention we will take is such that
 
 $ phi.alt(0, x_0) = x_0 $
 
-By uniqueness of 
-the solutions by defining $phi.alt(tau', x_0) = phi.alt(tau, phi.alt(s, x_0))$ and
-imposing that 
+There is an interesting property of flows that can be stated as follows
 
-#text(stroke: red, fill: red, size: 2em)[TODO: prove this]
+$ phi.alt(t+s, x_0) = phi.alt(t, phi.alt(s, x_0)) $
 
-$ phi.alt(tau+s, x_0) = phi.alt(tau, phi.alt(s, x_0)) $ 
-
-and thus
-
-$ phi.alt(-tau, phi.alt(tau, x_0)) = x_0 => phi.alt_tau^(-1) (p) = phi.alt_(-tau) (p) $
+this is easy to check since by uniqueness both $phi.alt(t+s, x_0)$ and 
+$phi.alt(t, p_0)$ where $p_0 = phi.alt(s, x_0)$ solve the same initial value problem
+therefore the equality is true. As a lemma we have that the inverse diffeomorphism
+$phi.alt^(-1)_tau (p)$ is equivalent to $phi.alt_(-tau) (p)$
 
 = Lie derivatives
 
@@ -701,9 +698,18 @@ $ K^alpha pdv(g_(mu nu), x^alpha) + g_(alpha nu) pdv(K^alpha, x^mu)
 + g_(mu alpha) pdv(K^alpha, x^nu) = 0 $
 
 Additionally, whenever a symmetric connection is used, such as the Levi-Civita
-connection used in general relativity, the following covariant from is equivalent
+connection used in general relativity, the following covariant form is equivalent
 
 $ cdv(K_nu, mu) + cdv(K_mu, nu) = 0 $<manifolds-eq:covariant-killing-field-eq>
+
+== Killing tensors
+
+By analogy to @manifolds-eq:covariant-killing-field-eq a Killing tensor is defined
+as a tensor $tensor(T, -alpha beta, gamma ...)$ such that
+
+$ cdv(tensor(T, -alpha beta gamma")"), "("mu ) = 0 $<manifolds-eq:Killing-tensor>
+
+where the parenthesis is the average over all of the permutations of the indices.
 
 == Properties of Killing fields
 
@@ -722,7 +728,7 @@ $ lie([X, Y], T) = lie(X, lie(Y, T)) - lie(Y, lie(X, T)) $
 So that if $X$ and $Y$ are Killing fields, then $[X, Y]$ form a Killing field too.
 
 The norm of a Killing vector field is constant along its own flow, this is easily
-probed by
+proved by
 
 $ lie(K, K^2) =  K^nu cdv((K^mu K_mu), nu) = 2 K^nu K^mu cdv(K_mu, nu)  = 
 K^nu K^mu underbrace((cdv(K_mu, nu) + cdv(K_nu, mu)), "Killing equation") = 0 $
@@ -750,15 +756,22 @@ $
 as an example of such a tensor the Stress-energy tensor, allowing to define 
 energy and momentum densities in curved spacetimes.
 
+This same idea can be extended to Killing tensors defined by @manifolds-eq:Killing-tensor
+so that if $tensor(A, - alpha beta gamma...)$ is a Killing tensor
+
+$ dv(, tau)(tensor(A, -alpha beta gamma...) u^alpha u^beta u^gamma) = 0 $
+
+is also a conserved quantities.
+
 === Number of Killing fields
 
 A good question now is to ask "How many Killing fields does our space have?", since
-this will lead to n conserved quantities, simplifying the resulting equations.
+this will lead to the same amount of conserved quantities, simplifying the resulting equations.
 
 As it turns out it is not possible, in general, to know exactly to know how many
 Killing fields there are without solving the equations, however, it is possible to
-place an upper bound on the number of Killing fields, and giving an interpretation
-of these.
+place an upper bound on the number of Killing fields of $n(n+1)/2$, $n$ 
+corresponding to translations and $n(n-1)/2$ to rotations.
 
 To prove this the starting point is the Riemann tensor
 
@@ -925,7 +938,7 @@ so $delta S' = 0 <=> delta S = 0$
 One can generate these transformations via *conformal Killing fields* defined 
 in an analogous way to Killing fields as
 
-$ lie(K, g) = kappa g $
+$ lie(K, g) = kappa g $<ec-manifolds:conformal-killing-field-definition>
 
 where $K$ is a conformal Killing field.
 
