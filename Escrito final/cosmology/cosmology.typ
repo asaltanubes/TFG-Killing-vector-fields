@@ -13,9 +13,7 @@ to some degree, independent of general relativity.
 The fundamental principle behind this metric is the observed homogeneity and
 isotropy of the universe at big scales. In more formal terms this means that
 there have to be a family of spacelike surfaces that are isometric
-under translations in all spatial directions and rotations around any point. This
-is, there are a family of spatial slices that are maximally symmetric so that 
-for any point in the manifold is part of one of the slices.
+under translations in all spatial directions and rotations around any point. 
 
 The usual ways to write this metric are
 
@@ -55,13 +53,12 @@ at $x^i$ with initial four velocity $n$
 assumed that our space is complete and the Hopf-Rinow theorem, gives an 
 equivalence between both statements.]. In this way the set of points of constant
 $x^i$ is defined as the points that the geodesic goes through and as a time variable 
-the arclength of the geodesic is chosen. An intuitive way to see this coordinate 
+the arclength of the geodesic is chosen#footnote[Accounting for backwards evolution to be negative]. An intuitive way to see this coordinate 
 system is to imagine that we place an observer at each point of our surface and
 assign a coordinate to each of them, after this we allow all of the observers to 
 evolve and take as a time coordinate the time they measure with their clocks.
 
-To check that the coordinate system we have actually has $g_(0 i) = 0$. A way to
-check this would be by using that the Christoffel symbol $tensor(Gamma, -i 0 0)$ 
+To check that the coordinate system we have actually has $g_(0 i) = 0$ we use that the Christoffel symbol $tensor(Gamma, -i 0 0)$ 
 is related to the metric by
 
 $ tensor(Gamma, -i 0 0) = 1/2 (2 partial_0 g_(0 i) - partial_i g_(0 0)) $

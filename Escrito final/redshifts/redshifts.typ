@@ -34,8 +34,8 @@ curve#footnote[Since observers move through time.] $x^mu_A (tau)$ to Bob,
 who is in curve $x^mu_B (tau)$.
 A way to compute the redshift is to take two geodesics that start at $x^mu_A$ and
 end $x^mu_B$. 
-To compute $T_A$ and $T_B$ would therefore be the proper time differences between
-the proper times of the intersection points of the light geodesics on the observer
+To compute $T_A$ and $T_B$ would therefore be the proper time interval between
+the intersection points of the light geodesics on the observer
 geodesics.
 
 This approach works but requires to know both the geodesics of the emitter, the 
@@ -44,7 +44,7 @@ observer and the light. This requirement can be dropped by using Killing fields.
 Assume we have a time-like Killing field $K$. Now we define stationary observers
 as those whose four-velocity is proportional to $K$. 
 
-If Alice and Bob are stationary observers, lets call $A_0$ and $B_0$ the initial 
+Now let Alice and Bob be stationary observers and call $A_0$ and $B_0$ the initial 
 two points connected by a null geodesic. Now, since their four-velocities are 
 proportional to the Killing field, they move through the flow of the Killing field.
 Therefore their geodesics for some small $Delta tau$ is 

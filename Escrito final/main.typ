@@ -1,8 +1,8 @@
 #import "template.typ": *
 
-#show: project.with(title: "Campos de Killing", authors: ("Autor: Gustavo Gancedo Crespo", "Director: Diego Herranz Muñoz"), abstract-in-english: [
+#show: project.with(title: "Campos de Killing y aplicaciones", authors: ("Autor: Gustavo Gancedo Crespo", "Director: Diego Herranz Muñoz"), abstract-in-english: [
   The purpose of this thesis is to make a rigorous and approachable introduction 
-  to Killing fields and their applications to any undergrad that is or has 
+  to Killing fields and their applications to any undergrad that is studying or has 
   studied a general relativity course. Applications range from direct treatment
   of geodesics in usual metrics like the Schwarzschild, Kerr or FLRW metrics to
   applications to optics as an effective theory passing through the more geometrical
@@ -11,7 +11,7 @@
   Additionally, as part of the agreement with Brown university, there is a dedicated
   section talking about the internship results on the study of a certain quantum 
   inflationary model and the validity and asymptotic behaviors of the model.
-])
+], date: "Septiembre de 2025")
 
 #include "Introduction/Introduction.typ"
 #include "Manifolds/manifolds.typ"
@@ -24,3 +24,10 @@
 #include "brown/quantum-cosmology-and-inflation.typ"
 
 #bibliography(("bibliography.bib", "brown/bibliography.bib"))
+
+#set heading(numbering: none)
+= Appendix: Code
+
+All of the code can be found in #link("https://github.com/asaltanubes/TFG-Killing-vector-fields")[github].
+
+

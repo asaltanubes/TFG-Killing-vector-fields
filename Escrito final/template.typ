@@ -99,7 +99,9 @@ TODOS:
 
     #v(1.4cm)
     
-    #text(size: 20pt, weight: "bold")[#title]
+    #text(size: 20pt, weight: "bold", font: "Arial")[#title]
+
+    #text(size: 20pt, font: "Arial")[(Killing fields and applications)]
     
     #text(size: 17pt)[#english-title]
     #v(2cm)
@@ -108,7 +110,7 @@ TODOS:
 
     #v(2cm)
     
-    #text(size: 14pt)[#grid(columns: (1fr,), gutter: 1em, align: right, ..authors.map(author => author + v(0.2cm)), date)]
+    #text(size: 14pt)[#grid(columns: (1fr,), gutter: 1em, align: right, ..authors.map(author => text(font: "Arial", size: 14pt,author) + v(0.2cm)), text(font: "Arial", size: 14pt, date))]
     // #pagebreak()
   ]
 

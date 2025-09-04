@@ -8,7 +8,7 @@ is thanks to one of the most beautiful theorems of physics. *The Noether theorem
 
 The Noether theorem establishes a one to one connection between symmetries and 
 conservation laws, thus explaining the origin of conservation of energy, charge and 
-all other conservation laws widely used in physics. 
+all other conserved quantities widely used in physics. 
 
 As an example, in classical mechanics, the action is defined as the integral of the
 Lagrangian @lagrangian-ref
@@ -41,7 +41,7 @@ A symmetry is a transformation, such as translations, rotations or even of the
 internal degrees of freedom a theory might have, that maintains some aspect of the
 theory invariant. 
 
-In the case of classical mechanics the main object that encapsulates the behavior 
+In the case of classical mechanics the Lagrangian encapsulates the behavior 
 of the system allowing for the computation of the equations of motion. Therefore 
 a symmetry in classical mechanics is any transformation to the Lagrangian that 
 doesn't change the equations of motion.

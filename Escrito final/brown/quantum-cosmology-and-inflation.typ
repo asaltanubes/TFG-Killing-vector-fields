@@ -131,7 +131,7 @@ $ tensor(omega, -mu, i, -j) = tensor(e, -rho, i) tensor(Gamma, rho, -mu nu) tens
 We also have to define the extrinsic curvature of the spatial slices similarly to 
 how Gaussian curvature is defined giving
 
-$ K_(a b) =  cdv(n_b,a)$
+$ K_(a b) =  cdv(n_b,a) $
 
 
 
@@ -177,7 +177,7 @@ $ cal(H) = 1/l_p^2 epsilon.alt_(i j k) E^(a i) E^(b j)(F_(a b)^k + (G V(phi.alt)
 epsilon.alt_(a b c) E^(c k)) + 1/2 p_phi.alt^2 + 1/2 E^(a i) E^b_i partial_a phi.alt
 partial_b phi.alt $
 
-where $p_phi$ is the momentum of the scalar field. Notice that the first term is 
+where $p_phi.alt$ is the momentum of the scalar field. Notice that the first term is 
 the usual general relativity gravitational Hamiltonian with the cosmological constant
 dependent on the field.
 
@@ -193,7 +193,7 @@ where $cal(S)$ is the corresponding spatial slice.
 By taking the value of the scalar field as a time variable $T = phi.alt$ and defining $N = dv(t, phi.alt)$
 where this enforces the lapse function to be
 
-$ N = k/p_phi $
+$ N = k/p_phi.alt $
 
 where $k$ is some constant. Without losing generality $k = 1$ is picked.
 
@@ -247,7 +247,7 @@ $ beta = pdv(S, alpha) $<ec-brown:beta-definition>
 
 since the Hamilton principal function is related to $E$ by
 
-$ 3/(R^3) pdv(S, A) $
+$ E = 3/(R^3) pdv(S, A) $
 
 one can obtain equations of motion for $A$ and $E$ by inverting @ec-brown:beta-definition
 resulting in 
@@ -400,7 +400,7 @@ with the trapezoidal rule since the solution is
 
 $ rho = exp(integral_(T_0)^T (V'(s))/V(s) + lambda sqrt(-u(s)) - lambda ((1+u(s)))/(2sqrt(-u(s))) dd(s)) $
 
-With these values $E$ could be computed and the results can be found in
+With these values $E$ could be computed and the results can be found in @fig-brown:classical-E
 
 #figure(
   image("figures/E-classical-sim.svg"),
@@ -475,7 +475,7 @@ where $C$ is a path that starts at complex value $z_(-oo)$ with $abs(z_(-oo)) ->
 and $2/3 pi <= arg(z_(-oo))<= pi$ and ends at $z_oo$ with $abs(z_oo) -> oo$ and
 $0 <= arg(z_(oo)) <= pi/3$. By choosing the path that goes through the real line 
 we can see that the integral is equivalent to twice the real part of the integral 
-over the positive negative real axis#footnote[Since $z + z^* = 2 Re(z)$]. The result is that
+over the negative real axis#footnote[Since $z + z^* = 2 Re(z)$]. The result is that
 the integral reduces to an integral from $0$ to $oo$ with the argument of the curve
 stays between $2/3 pi$ and $5/6 pi$. Therefore we can write
 
@@ -509,10 +509,14 @@ the integration path $C^+$ ensures
 that $B$ has positive real part. This is necessary for the incomplete gamma function
 to converge to the gamma function.
 
-Similarly, the $expval(E)$ diverges towards positive infinity since the integral
-of the Airy function squared 
-over the negative values of $E$ is finite but the integral over the positive values
-diverges. This also tells something really interesting. Since the provability of a
+Similarly, the $expval(E)$ diverges towards positive infinity. 
+Something interesting is that since the integral over the negative values of $E$ 
+is finite while the integral over the positive values of $E$ is infinite,
+// Since the integral
+// of the Airy function squared 
+// over the negative values of $E$ is finite but the integral over the positive values
+// diverges. This also tells something really interesting. Since 
+and the provability of a
 certain value of $E$ is related to the area of the square norm of the function this
 means that the predicted provability of finding Euclidean, instead of Lorentzian, 
 spaces is zero. This also implies that the provability of finding a singularity 

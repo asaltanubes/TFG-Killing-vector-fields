@@ -28,14 +28,14 @@ $ dd(s)^2 = c^2 dd(t)^2 - n^2 (dd(x)^2 + dd(y)^2 + dd(z)^2) $
 as it can be seen the speed of light in any of the three Cartesian 
 directions is 
 
-$ c^2 dd(t)^2 - n^2 dd(x)^2 = 0 => dd(x)^2/dd(t)^2 = c^2/n^2 = v^2  $
+$ c^2 dd(t)^2 - n^2 dd(x)^2 = 0 => (dd(x)/dd(t))^2 = c^2/n^2 = v^2  $
 
 as expected.
 
 First lets start with a simple case where we have some material on one side and
 vacuum on the other. To do this we will pick 
 
-$ n(x) = n theta(x) $
+$ n(x) = n theta(x) + theta(-x) $
 
 where $theta$ is the Heaviside function.
 

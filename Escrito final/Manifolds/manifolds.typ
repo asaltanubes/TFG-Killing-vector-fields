@@ -10,12 +10,10 @@ it is required to understand is, in the mathematical sense, spacetime and
 define flows and Lie derivatives.
 
 To do this we will introduce little by little mathematical structure based on the 
-qualities that a spacetime should have
+qualities that a spacetime should have. At the end of the section
+we will have motivated the use
+of a pseudo-Riemannian manifold as the model for spacetime.
 
-== Spacetimes
-
-A spacetime in the formalism of general relativity is defined as a pseudo-Riemannian
-manifold. We will start by understanding this ideas.
 
 == Continuity
 
@@ -73,7 +71,7 @@ atlas or $atlas$.
 Another representation for a coordinate system is a collection of $n$ functions 
 $x^mu: EE --> RR$ such that $x^0$ gives the $0$-th component of a coordinate system
 $phi$, $x^1$ the first component and so on. This representation is more common in 
-physics and will be widely used in this thesis.
+physics and will be the main one used in this thesis.
 
 == Fields on the spacetime
 Now it is time to start talking about what can we 'place' on spacetime.
@@ -114,7 +112,7 @@ $x'^0 = x^1, x'^1 = x^0, x'^2 = x^2$.
 Now lets define a constant vector field on the
 '$x$' direction $X(p) = (1, 0, 0)$. In the $x^mu$ coordinate system this field 
 points in the $x^0$ direction while on the $x'^mu$ coordinate system points in 
-the $x'^0$ direction, this would correspond to the $x^0$ direction by the coordinate
+the $x'^0$ direction, this would correspond to the $x^1$ direction by the coordinate
 transformations defined. Therefore this definition of a vector field is not 
 independent of coordinate choice.
 
@@ -411,7 +409,7 @@ $ X'^mu (hat(p)) = pdv(x'^mu, x^nu)(F^(-1)(hat(p))) X^nu (F^(-1)(hat(p)))  $
 This equation might seem purely mathematical but it explains the physical 
 transformations that we will find. These have a translation component, encoded 
 on the term of $X^nu (F^(-1)(hat(p)))$, that because of the $F^(-1)$ term shifts 
-the position of the $X^mu(p)$ vector. The other component are rotations, or 
+the position of the $X^mu (p)$ vector. The other component are rotations, or 
 expansions, encoded on the $pdv(x'^mu, x^nu)(F^(-1)(hat(p)))$, this is because 
 this term mixes the components and allows for changing the direction of the vector
 or length of the vector.
@@ -559,15 +557,11 @@ First of all, since $V$ is a smooth vector field, the solutions to
 $phi.alt(tau, x_0)$ are unique, this also means that for any fixed $tau$ the 
 transformation
 $phi.alt_tau: M -> M$ defined as $phi.alt_tau (p) = phi.alt(tau, p)$ is a 
-diffeomorphism since the solutions are unique and since the function is 
-differentiable with respect to $tau$ it has to be smooth.
+diffeomorphism.
 
 Another property that flow has is that these are defined except by a constant 
 translation on the parameter $tau$. Meaning if $phi.alt(tau, x_0)$ is a flow of a 
 field $V$ then $phi.alt(tau + s, x_0)$ is also a flow of the field $V$. 
-Unless stated otherwise the convention we will take is such that
-
-$ phi.alt(0, x_0) = x_0 $
 
 There is an interesting property of flows that can be stated as follows
 
@@ -718,7 +712,7 @@ $ cdv(K_nu, mu) + cdv(K_mu, nu) = 0 $<manifolds-eq:covariant-killing-field-eq>
 == Killing tensors
 
 By analogy to @manifolds-eq:covariant-killing-field-eq a Killing tensor is defined
-as a tensor $tensor(T, -alpha beta, gamma ...)$ such that
+as a tensor $tensor(T, -alpha beta gamma ...)$ such that
 
 $ cdv(tensor(T, -alpha beta gamma")"), "("mu ) = 0 $<manifolds-eq:Killing-tensor>
 
@@ -772,9 +766,12 @@ energy and momentum densities in curved spacetimes.
 This same idea can be extended to Killing tensors defined by @manifolds-eq:Killing-tensor
 so that if $tensor(A, - alpha beta gamma...)$ is a Killing tensor
 
-$ dv(, tau)(tensor(A, -alpha beta gamma...) u^alpha u^beta u^gamma) = 0 $
+$ dv(, tau)(tensor(A, -alpha beta gamma...) u^alpha u^beta u^gamma ... ) = 0 $
 
 is also a conserved quantities.
+
+Since four-momentums are related by a constant to four-velocities the same can be
+extended to four-momentums since the derivative is a linear operator.
 
 === Number of Killing fields
 
@@ -851,7 +848,7 @@ $ mipdv(K_delta, alpha) =
 +tensor(hat(B), -delta, gamma, beta)(p, alpha) partial_gamma K_beta (p)  
 $
 
-It is important to note that these objects are, in general, not tensors, since the
+It is important to note that these objects  in general are not tensors, since the
 left hand side is not a tensor.
 
 By substituting into the Taylor series one obtains

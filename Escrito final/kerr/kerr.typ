@@ -14,7 +14,7 @@ the solution. The result is that in the metric there is at least one cross term
 allowed between time and space.
 
 By using the Boyer-Lindquist coordinates, $(t, r, theta, phi)$ related to 
-cartesian coordinates by 
+Cartesian coordinates by 
 
 $ 
   cases(
