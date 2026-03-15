@@ -1,4 +1,5 @@
 #import "template.typ": *
+#import "things-to-add.typ": pdv
 
 #show: project.with(title: "Campos de Killing y aplicaciones", authors: ("Autor: Gustavo Gancedo Crespo", "Director: Diego Herranz Muñoz"), abstract-in-english: [
   The purpose of this thesis is to make a rigorous and approachable introduction 
@@ -21,13 +22,13 @@
 #include "redshifts/redshifts.typ"
 #include "optics/optics.typ"
 
-#include "brown/quantum-cosmology-and-inflation.typ"
+// #include "brown/quantum-cosmology-and-inflation.typ"
 
 #bibliography(("bibliography.bib", "brown/bibliography.bib"))
 
 #set heading(numbering: none)
-= Appendix: Code
-
+= Appendices 
+== Code
 All of the code can be found in #link("https://github.com/asaltanubes/TFG-Killing-vector-fields")[github].
 
 

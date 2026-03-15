@@ -333,7 +333,7 @@ is linear so that
 $ pf(F)(alpha f+ beta g) = alpha pf(F) f + beta pf(F) g \ 
   pb(F)(alpha f+ beta g) = alpha pb(F) f + beta pb(F) g  $
 
-Under this definitions diffeomorphisms may be thought rather than as mappings 
+Under this definition diffeomorphisms may be thought rather than as mappings 
 between manifolds, as coordinate changes, since for any coordinate system on $N$,
 $x'^mu$, it can be thought of as a coordinate system on $M$ defined as 
 $x^mu = pb(F) x'^mu$. This will come up later in the chapter in the notion of 
@@ -419,7 +419,7 @@ $hat(p) -> p$ and $F -> F^(-1)$
 
 so 
 
-$ X'^mu (p) = pdv(x^mu, x'^nu)(F(p)) X^nu (F(p)) $<ec:pb-comp-vec-field>
+$ X^mu (p) = pdv(x^mu, x'^nu)(F(p)) X'^nu (F(p)) $<ec:pb-comp-vec-field>
 
 == Pullback and pushforward of covector fields
 
@@ -654,7 +654,7 @@ $ (lie(X, Y))^mu &= eval(dv(, tau) pb(phi.alt_tau) Y)_(tau = 0)
                X^alpha pdv(x^beta, x'^alpha) pdv(Y^nu, x^beta)]_(tau=0)
                \ &= -Y^nu (x) pdv(X^mu, x^nu) +  
                X^alpha pdv(Y^mu, x^alpha)
-               $
+               $<ec:lie-der-of-vector-field-components>
 
 Here there are two terms, the first one is associated with translations. This term
 is the $X^alpha pdv(Y^mu, x^alpha)$. This is essentially what was obtained in the 
@@ -821,8 +821,8 @@ By using the following multi-index notation
 
 $ alpha = (alpha_1, alpha_2, alpha_3, ..., alpha_n) in NN^n \ 
 |alpha| = sum_i alpha_i \
-mipdv(f, alpha) = (diff^(|alpha|) f)/((diff x^1)^(alpha_1) (diff x^2)^(alpha_2)...
-(diff x^n)^(alpha_n)) \ 
+mipdv(f, alpha) = (partial^(|alpha|) f)/((partial x^1)^(alpha_1) (partial x^2)^(alpha_2)...
+(partial x^n)^(alpha_n)) \ 
 
 alpha! = #sym.product _i alpha_i !\
 
@@ -955,9 +955,21 @@ where $K$ is a conformal Killing field.
 This allows to generate new geodesics from existing ones and will simplify the 
 computations of redshifts.
 
+In the case of null geodesics it is enough to relax the condition @ec-manifolds:conformal-killing-field-definition from $kappa$ constant to a function
+of the spacetime point. This is because for light geodesics $g_(mu nu) dot(x)^mu dot(x)^nu = 0$ both in the usual and the conformal frame. Therefore we have
 
+$ delta S' &= integral delta(g'_(mu nu) dot(x)^mu dot(x)^nu) dd(tau)
+\
+&= integral delta(kappa(tau) g_(mu nu) dot(x)^mu dot(x)^nu) dd(tau) =
 
+integral kappa(tau) delta(g_(mu nu) dot(x)^mu dot(x)^nu) 
++  cancel(g_(mu nu) dot(x)^mu dot(x)^nu delta kappa(tau)) dd(tau) = 0 =>
+\
+&=> delta(g_(mu nu) dot(x)^mu dot(x)^nu) = 0 => delta S'=0 <==> delta S=0 
+$
 
+And from this last equality we recover the original EOM. Showing that both actions
+are equivalent.
 
 
 

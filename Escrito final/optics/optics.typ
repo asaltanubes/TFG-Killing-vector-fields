@@ -85,46 +85,49 @@ of contact of the light ray with the boundary, by taking a small enough
 neighborhood of the contact point the surface will be flat and the same three 
 Killing fields will be valid giving the same law.
 
-This also allows us to work on more complex results. 
+== Relativistic optics
 
-As an example for moving matter along 
+Using the tools developed in this section we can now model the optical properties
+of moving matter along 
 the x axis with with speed $beta = v/c$.  
 By using special relativity we can do a Lorentz transformation on the stationary
 reference frame to obtain the equations when the block moves. By calling 
 the frame where block moves $x'^mu$ and the frame where the matter doesn't move.
 
+Since the equations become a bit cumbersome to work with natural units are used so
+that $c=1$ for the rest of the section.
+
 The Lorentz transformation in this case is 
 
 $ 
-  cases(c t &= gamma (c t' - beta x'), x &= gamma (x' - beta c t'), y&=y', z&=z'  )
+  cases(c t &= gamma (t' - beta x'), x &= gamma (x' - beta t'), y&=y', z&=z'  )
 $
 
 The first quantity we are interested in is the norm of the four-velocity which 
 can be Lorentz transformed to give
 
 $ 
-  gamma^2(c u'^t - beta u'^x)^2 - n^2(gamma^2 (u'^x - beta c u'^t)^2 + (u'^y)^2) =\
-  gamma^2 c^2 (1-beta^2n^2) (u'^t)^2 + 2 beta c gamma^2(n^2-1)u'^t u'^x + 
-  gamma^2 (beta^2 - n^2)(u'^x)^2 - n^2 (u'^y)^2 = 0
-$
+  gamma^2(u'^t - beta u'^x)^2 - n^2(gamma^2 (u'^x - beta u'^t)^2 + (u'^y)^2)  = 0
+$<optics-eq:u-norm-in-lorentz-frame>
 
 As we can see the resulting material behaves as if it was anisotropic, by defining
 
 $ 
   dv(x', t') = v'(theta') cos(theta')\ 
   dv(y', t') = v'(theta') sin(theta')
-$
+$<optics-eq:anisotropic-v>
 
-We can obtain the speed of light depending on the direction, the resulting 
-expression is
+We can obtain the speed of light depending on the direction, 
+
+By dividing @optics-eq:u-norm-in-lorentz-frame, substituting in the definition 
+@optics-eq:anisotropic-v and 
 
 $ 
-  v'(theta') = (2 beta c (n^2 -1)cos(theta') pm sqrt(Delta(theta')))/(2 (gamma^2 (n^2 - beta^2) cos^2(theta') + n^2 sin^2(theta')))
+  v'(theta') = (beta gamma^2 (n^2 -1)cos(theta') pm sqrt(Delta(theta')))/(gamma^2 (n^2 - beta^2) cos^2(theta') + n^2 sin^2(theta'))
   
   \
-  Delta(theta') = 2 beta c (n^2 -1) cos^2(theta') 
-          + 4c^2 gamma^2 (1-n^2 beta^2) (gamma^2(n^2-beta^2) cos^2(theta') +n^2 sin^2(theta')
-$
+  Delta(theta') = gamma^2 n^2 ((beta^2-1)^2 gamma^2 cos^2(theta') + sin^2(theta')(1-beta^2n^2))
+$<optics-eq:anisotropic-v-result>
 
 Restricting to only positive solutions of $v$ we see that there are two cases. 
 
@@ -134,21 +137,44 @@ If the material moves more slowly than the light rays all angles of movement are
 allowed. However light tends to go faster in the direction of the material. On the
 other hand when the material goes faster than the light inside of it only certain
 $theta'$ are allowed. This is because the material is dragged with the material 
-similarly how black holes drag light when moving or when rotating.
+similarly how black holes drag light when moving or when rotating. A plot of this 
+effect can be seen in @optics-fig:v-theta. As we can see the moment the object moves
+faster than the light in the medium is allowed it is forced to move with it. 
+However, the photons that move "against the current", meaning, in the opposite 
+direction the medium moves#footnote[For instance in $theta'=0$ there are two possible
+values for $v'$. One is for the $theta=0$ and the other for $theta= pi$ in the frame where 
+the medium is stationary.], move more slowly than the medium and therefore at some
+point the boundary of the medium reaches these photons allowing them to travel 
+in the negative direction of the $x$ axis again.
+
+
+#figure(
+  grid(columns: (1fr, 1fr), 
+  column-gutter: 20pt,
+  image("figures/slow-moving-object.pdf", width: 110%),
+  image("figures/fast-moving-object.pdf", width: 110%)),
+  caption: [In this figure we can see how the movement of the transparent medium 
+  forces light to follow it. Both figures are representing the anisotropic velocity 
+  predicted by @optics-eq:anisotropic-v-result for a material with $n=1.5$. 
+  On the left $beta = 0.4 <1 slash n$ towards the positive x axis. On the right $beta=0.7>1 slash n$. As we can see when the medium moves faster than the light inside of it
+  it forces the light to move with it.]
+)<optics-fig:v-theta>
 
 To obtain the equivalent to Snell law in this frame of reference we can Lorentz
 boost the Killing fields obtaining
 
 $ 
-  [T'_mu] &= (c^2 gamma, -beta c gamma, 0, 0)\
+  [T'_mu] &= (gamma, -beta gamma, 0, 0)\
   [Y'_mu] &= (0, 0, n^2, 0)
 $
 
 And by the same process as the one used to find $cal(S)$
 
 $ 
-  cal(S') = (n^2 u'^y)/(c^2 gamma (u'^t - beta/c u'^x)) = 
-  (n^2 u'^y)/(c^2 gamma u^t (1 - beta/c v'(theta') cos(theta'))) = 
-  sin(theta')/(v'(theta') gamma (1-beta/c v'(theta') cos(theta')) )
+  cal(S') = (n^2 u'^y)/(gamma (u'^t - beta/u'^x)) = 
+  (n^2 u'^y)/(gamma u^t (1 - beta/(v'(theta')) cos(theta'))) = 
+  sin(theta')/(v'(theta') gamma (1-beta/(v'(theta')) cos(theta')) )
 $
 
+obtaining the relativistic corrections to the Snell law. As we can see when $v'$
+becomes isotropic and $beta->0$ the result is the usual Snell equation.
